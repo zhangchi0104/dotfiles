@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+- shell:
+  - [curl -fsSL https://starship.rs/install.sh | bash, Install starship prompt]
+  - [chsh -s $(which zsh), Making zsh the default shell]
+  - [curl -sLf https://spacevim.org/install.sh | bash, Get Spacevim]
+- link:
+    ~/.zshrc:
+      force: true
+      path: zshrc
+    
+    ~/.tmux.conf.local:
+      path: tmux.conf.local
+
+    ~/.tmux.conf:
+      path: .tmux.conf
+
+    ~/.SpaceVim.d/init.toml:
+      path: spacevim.toml
+      create: true
