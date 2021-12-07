@@ -71,3 +71,4 @@ if [ -e nvim-dev ]; then
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
