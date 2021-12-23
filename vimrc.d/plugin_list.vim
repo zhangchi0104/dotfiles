@@ -7,6 +7,8 @@ if !exists('g:SOURCE_PLUGINS_VIM')
     let g:SOURCE_PLUGINS_VIM = 1
     call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         if has('nvim-0.6.0')
+          Plug 'liuchengxu/vim-clap'
+          Plug 'glepnir/dashboard-nvim'
           Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " Advanced syntax highlight
         else
           Plug 'sheerun/vim-polyglot'                                   " Fallback highlight
@@ -26,7 +28,6 @@ if !exists('g:SOURCE_PLUGINS_VIM')
           Plug 'roxma/vim-hug-neovim-rpc'
         endif
         Plug 'kristijanhusak/defx-icons'
-        Plug 'mhinz/vim-startify'
         Plug 'ryanoasis/vim-devicons'
         Plug 'joshdick/onedark.vim'                                 " OneDark colorscheme
     call plug#end()

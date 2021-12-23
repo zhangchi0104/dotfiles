@@ -60,7 +60,7 @@ endif
 " #     PLUGINS      #
 " #                  # 
 " ####################
-source ~/.vimrc.d/plugins.vim
+source ~/.vimrc.d/plugin_list.vim
 
 let g:netrw_banner=0
 filetype on
