@@ -365,3 +365,4 @@ bind | split-window -h
 bind - split-window -v
 #
 set -sg repeat-time 300
+set-option -sa terminal-overrides ',xterm-256color:RGB'
