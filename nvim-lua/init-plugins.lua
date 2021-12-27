@@ -6,59 +6,69 @@
 -- Load Packer
 vim.cmd([[packadd packer.nvim]])
 
-return require('packer').startup(function(use)
-  -- Let Packer manage itself
-  use({'wbthomason/packer.nvim', opt = true})
-  
-  -- colorscheme
-  use 'folke/tokyonight.nvim'
+return require('packer').startup({function(use)
+    -- Let Packer manage itself
+    use({'wbthomason/packer.nvim', opt = true})
+    
+    -- colorscheme
+    use 'folke/tokyonight.nvim'
 
-  -- status line
-  use({
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  })
-  
-  -- tabline
-   use({
-    'noib3/nvim-cokeline',
-    requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
-  })
-  -- Syntax highlight
-  use({
-    'nvim-treesitter/nvim-treesitter',
-    run='TSUpdate'
-  })
+    -- status line
+    use({
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    })
+    
+    -- tabline
+     use({
+      'noib3/nvim-cokeline',
+      requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
+    })
 
-  -- LSP 
-  use 'neovim/nvim-lspconfig'
+    -- Syntax highlight
+    use({
+      'nvim-treesitter/nvim-treesitter',
+      run='TSUpdate'
+    })
 
-  -- auto compeletion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
+    -- LSP 
+    use 'neovim/nvim-lspconfig'
 
-  --snippets
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip' 
+    -- auto compeletion
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
 
-  -- finder
-  use({
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  })
+    --snippets
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip' 
 
-  -- file tree
-  use({
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
-  })
+    -- finder
+    use({
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    })
 
-  -- Greeter
-  use({
-    'goolord/alpha-nvim',
-  })
+    -- file tree
+    use({
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons',
+      },
+    })
 
-end)
+    -- Greeter
+    use({
+      'goolord/alpha-nvim',
+    })
+
+    -- formatting
+    use 'sbdchd/neoformat'
+
+  end,
+  config = {
+    display = {
+      open_fn = require('packer.util').float
+    }
+  }
+})
 
