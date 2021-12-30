@@ -122,7 +122,7 @@ local components = {
 
   close_or_unsaved = {
     text = function(buffer)
-        return buffer.is_modified and '●' or ''
+        return buffer.is_modified and '●' or ''
     end,
     hl = {
       fg = function(buffer)
