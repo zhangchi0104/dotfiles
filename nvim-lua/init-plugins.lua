@@ -64,6 +64,10 @@ return require('packer').startup({function(use)
     -- formatting
     use 'sbdchd/neoformat'
 
+    -- sessions
+    use 'Shatur/neovim-session-manager'
+
+
   end,
   config = {
     display = {
