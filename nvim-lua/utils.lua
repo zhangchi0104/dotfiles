@@ -3,10 +3,20 @@
 -- Date 24/12/2021
 -- Description: helper functions
 local M = {}
+local opts = { silent = true, expr = false, noremap = true }
+local map_key = vim.api.nvim_set_keymap
 
-function M.nnoremap(src, dst, opts)
-    opts = opts or {silent=true, expr=false} 
-    vim.api.nvim_set_keymap('n', src, dst, opts)
+local function make_keymap_func(mode, default_opts)
+  return function(src, dst, opts)
+    local opts = opts or default_opts
+    map_key(mode, src, dst, opts)
+  end
 end
+
+M = {
+  inoremap = make_keymap_func('i',  opts),
+  nnoremap = make_keymap_func('n', opts),
+  noremap = make_keymap_func('nvo', opts),
+}
 
 return M 
