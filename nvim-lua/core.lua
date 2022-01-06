@@ -22,5 +22,5 @@ vim.o.updatetime = 300
 vim.o.stal= 2
 vim.o.laststatus = 2
 vim.o.termguicolors = true
-
 vim.g.mapleader = ' '
+vim.o.guifont='JetBrainsMono Nerd Font Mono:h13'

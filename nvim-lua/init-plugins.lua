@@ -34,6 +34,7 @@ return require('packer').startup({function(use)
     -- LSP 
     use 'neovim/nvim-lspconfig'
 
+
     -- auto compeletion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -66,13 +67,15 @@ return require('packer').startup({function(use)
 
     -- sessions
     use 'Shatur/neovim-session-manager'
-
+    
+    -- dart / flutter
+    use 'akinsho/flutter-tools.nvim'
 
   end,
   config = {
     display = {
       open_fn = require('packer.util').float
-    }
+    },
   }
 })
 

@@ -7,7 +7,9 @@ local nvim_lsp = require('lspconfig')
 
 -- Load keymappings for LSP
 local on_attach = require('plugins/lspconfig-keymappings').on_attach
-
+local ver = vim.version()
+local version_str = require'string'.format('%s.%s.%s', 
+  ver.major, ver.minor, ver.patch)
 -- initialize Python LSP 
 nvim_lsp.pyright.setup{}
 
@@ -18,12 +20,29 @@ capabilities = require('cmp_nvim_lsp').
 
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+local servers = {
+  --python
+  pyright = {},
+  --dart / flutter
+  -- dartls = {
+  --   cmd = {
+  --    'dart', 
+  --    'language-server', 
+  --    '--client-id',
+  --    'neovim.lsp',
+  --    '--client-version',
+  --    version_str
+  --  }
+  -- }
+}
+
+
+
+for lsp, conf in pairs(servers) do
+  conf = conf or {}
+  conf.on_attach = on_attach
+  conf.capabilities = conf.capabilities 
+  nvim_lsp[lsp].setup(conf)
 end
 
 -- Set completeopt to have a better completion experience
