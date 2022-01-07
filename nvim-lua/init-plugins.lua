@@ -71,6 +71,8 @@ return require('packer').startup({function(use)
     -- dart / flutter
     use 'akinsho/flutter-tools.nvim'
 
+    -- Terminal
+    use "numToStr/FTerm.nvim"
   end,
   config = {
     display = {
