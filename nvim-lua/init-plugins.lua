@@ -19,12 +19,11 @@ return require('packer').startup({function(use)
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     })
     
-    -- tabline
-     use({
-      'noib3/nvim-cokeline',
-      requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
-    })
-
+    -- tabline 
+    use {
+      'seblj/nvim-tabline',
+      requires = { 'kyazdani42/nvim-web-devicons'}
+    }
     -- Syntax highlight
     use({
       'nvim-treesitter/nvim-treesitter',
