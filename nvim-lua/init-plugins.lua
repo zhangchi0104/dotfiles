@@ -6,7 +6,7 @@
 -- Load Packer
 vim.cmd([[packadd packer.nvim]])
 
-return require('packer').startup({function(use)
+return require('packer').startup({function()
     -- Let Packer manage itself
     use({'wbthomason/packer.nvim', opt = true})
     
@@ -73,6 +73,9 @@ return require('packer').startup({function(use)
 
     -- Terminal
     use "numToStr/FTerm.nvim"
+
+    -- http client
+    use_rocks 'lua-http'
   end,
   config = {
     display = {
