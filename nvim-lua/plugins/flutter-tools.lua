@@ -3,9 +3,6 @@
 -- Date: 06/01/2022 
 local on_attach = require('plugins/lspconfig-keymappings').on_attach
 
--- Configure Telescope
-require("telescope").load_extension("flutter")
-
 -- configure keymap 
 local function  flutter_on_attach(client, bufnr)
   local function buf_set_keymap_dart(...)

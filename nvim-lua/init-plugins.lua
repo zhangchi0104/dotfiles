@@ -75,7 +75,6 @@ return require('packer').startup({function()
     use "numToStr/FTerm.nvim"
 
     -- http client
-    use_rocks 'lua-http'
   end,
   config = {
     display = {
