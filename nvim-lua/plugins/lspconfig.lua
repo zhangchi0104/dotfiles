@@ -18,7 +18,6 @@ local capabilities = vim.lsp.protocol.
 capabilities = require('cmp_nvim_lsp').
     update_capabilities(capabilities)
 
-
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
   --python
@@ -34,14 +33,14 @@ local servers = {
   --    version_str
   --  }
   -- }
+  emmet_ls = {},
 }
-
 
 
 for lsp, conf in pairs(servers) do
   conf = conf or {}
   conf.on_attach = on_attach
-  conf.capabilities = conf.capabilities 
+  conf.capabilities = capabilities 
   nvim_lsp[lsp].setup(conf)
 end
 
