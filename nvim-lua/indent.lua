@@ -16,6 +16,7 @@ local lang_indent = {
   typescriptreact = 2,
   html = 2,
   css = 2,
+  htmldjango = 2,
 }
 
 function M.set_ft_indent(ft, i)
