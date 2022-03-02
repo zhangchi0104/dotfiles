@@ -9,6 +9,9 @@ local overrides = require 'custom.plugins.configs'
 
 M.plugins = {
   install = user_plugins,
+  status = {
+    alpha = true, 
+  },
   options = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig"
