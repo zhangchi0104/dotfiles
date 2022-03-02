@@ -46,3 +46,7 @@ files:
   vimrc.d:
     src: "~/.vimrc.d"
     dst: vimrc.d
+
+  nvchad:
+    src: "~/.config/nvim/lua/custom"
+    dst: nvchad

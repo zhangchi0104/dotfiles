@@ -3,7 +3,7 @@
 -- Date 24/12/2021
 -- Description: Basic key mappings
 
-local utils = require('utils')
+local utils = require('custom.utils')
 
 -- save & quit
 utils.nnoremap('qq', ':q<CR>')
@@ -42,4 +42,4 @@ utils.nnoremap('<Leader>wJ', '<C-w>J')
 utils.nnoremap('<Leader>wK', '<C-w>K')
 utils.nnoremap('<Leader>wL', '<C-w>L')
 
-
+utils.nnoremap('<leader>ft', ':NvimTreeToggle<cr>')
