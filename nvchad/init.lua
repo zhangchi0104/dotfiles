@@ -4,4 +4,5 @@
 
 -- MAPPINGS
 require("custom.mappings")
+require("custom.indent")
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it

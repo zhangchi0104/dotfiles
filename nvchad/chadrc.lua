@@ -6,7 +6,9 @@ local M = {}
 -- example of changing theme:
 local user_plugins = require "custom.plugins"
 local overrides = require 'custom.plugins.configs'
-
+M.options = {
+  relativenumber = true,
+}
 M.plugins = {
   install = user_plugins,
   status = {
@@ -14,7 +16,7 @@ M.plugins = {
   },
   options = {
     lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig"
+      setup_lspconf = "custom.plugins.lspconfig",
     }
   },
   default_plugin_config_replace = {
