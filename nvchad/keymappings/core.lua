@@ -42,4 +42,3 @@ utils.nnoremap('<Leader>wJ', '<C-w>J')
 utils.nnoremap('<Leader>wK', '<C-w>K')
 utils.nnoremap('<Leader>wL', '<C-w>L')
 
-utils.nnoremap('<leader>ft', ':NvimTreeToggle<cr>')

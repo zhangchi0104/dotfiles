@@ -3,6 +3,8 @@
 -- Date 24/12/2021
 -- Description: configuration for neovim/lsp-config
 local M = {}
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<leader>el', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"

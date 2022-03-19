@@ -2,8 +2,11 @@
 ANTIGEN_PATH="$HOME/antigen.zsh"
 source $ANTIGEN_PATH
 MINICONDA_PREFIX="$HOME/miniconda3"
+
 if [ $(uname -s) = 'Darwin' ]; then
-	source ~/.bash_profile
+	if [[ -a ~/.bash_profile ]]; then
+		source ~/.bash_profile
+	fi
 fi 
 # =====Antigen Configs=======
 antigen use oh-my-zsh

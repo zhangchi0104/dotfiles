@@ -13,10 +13,16 @@ local function make_keymap_func(mode, default_opts)
   end
 end
 
+function has_module(module_name)
+  local present, _ = pcall(require, module_name)
+  return present 
+end
+
 M = {
   inoremap = make_keymap_func('i',  opts),
   nnoremap = make_keymap_func('n', opts),
   noremap = make_keymap_func('nvo', opts),
+  has_module = has_module
 }
 
 return M 

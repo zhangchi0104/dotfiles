@@ -16,5 +16,14 @@ return {
      config = function()
        require("custom.plugins.tabline").setup()
     end
+  }, {
+    "folke/trouble.nvim",
+    requires = { 
+      "kyazdani42/nvim-web-devicons", 
+      "folke/lsp-colors.nvim", 
+    },
+    config = function()
+      require("trouble").setup()
+    end
   }
 }
