@@ -27,6 +27,11 @@ nvim_tree.setup{
     mappings = {
         list = keymappings
     }
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
   }
 }
 
