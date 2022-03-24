@@ -15,6 +15,7 @@ local keymappings = {
   { key = {'vs', '<C-v>' }, action = 'vsplit' },
   { key = {'sp', '<C-x>' }, action = 'split' },
   { key = {'?', 'g?'}, action = 'toggle_help'},
+  { key = { 'a', 'n'}, action = 'create'}
 }
 
 -- nvim-tree setup
