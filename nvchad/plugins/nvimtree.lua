@@ -21,7 +21,6 @@ local keymappings = {
 -- nvim-tree setup
 nvim_tree.setup{
   toggle = "<leader>ft",
-  auto_close = true,
   view = {
     hide_root_folder = true,
     mappings = {
