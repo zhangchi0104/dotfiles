@@ -19,7 +19,7 @@ local keymappings = {
 }
 
 -- nvim-tree setup
-nvim_tree.setup{
+local M = {
   toggle = "<leader>ft",
   view = {
     hide_root_folder = true,
@@ -33,4 +33,4 @@ nvim_tree.setup{
     }
   }
 }
-
+return M

@@ -20,7 +20,7 @@ M.plugins = {
     }
   },
   default_plugin_config_replace = {
-    nvim_tree = "custom.plugins.nvimtree",
+    nvim_tree = overrides.nvim_tree,
     nvim_treesitter = overrides.treesitter,
   },
   default_plugin_remove = {
