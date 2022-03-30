@@ -2,9 +2,17 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
-  b.formatting.prettierd.with { filetypes = { "html", "markdown", "css" } },
+  b.formatting.prettier.with({
+    filetypes = {
+      "html", 
+      "markdown",
+      "css", 
+      "solidity"
+    }
+  }),
   b.formatting.deno_fmt,
-  b.formatting.yapf
+  b.formatting.yapf,
+  b.diagnostics.solhint,
 }
 
 local M = {}

@@ -12,6 +12,7 @@ M.setup_lsp = function(attach, capabilities)
    -- lspservers with default config
    local servers = { 
     "pyright",
+    "solidity_ls", 
    }
 
    for _, lsp in ipairs(servers) do
