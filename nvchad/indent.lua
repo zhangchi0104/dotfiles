@@ -17,6 +17,7 @@ local lang_indent = {
   html = 2,
   css = 2,
   htmldjango = 2,
+  solidity = 4, 
 }
 
 function M.set_ft_indent(ft, i)
