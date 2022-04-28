@@ -33,26 +33,33 @@ alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 export EDITOR=nvim
-if [ -e fuck ]; then
-  eval $(thefuck --alias)
-fi
-export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
+if [ -e fuck ]; then
+    eval $(thefuck --alias)
 fi
-eval "$(starship init zsh)"
-# eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
 
+if command -v pyenv 1>/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
+if [ -e /usr/local/bin/starship ]; then
+    eval "$(starship init zsh)"
+fi
+
+# eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
+if command -v keychain 1>/dev/null 2>&1; then 
+    keychain id_rsa 
+    . ~/.keychain/`uname -n`-sh 
+fi
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$MINICONDA_PREFIX/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "$MINICONDA_PREFIX/etc/profile.d/conda.sh" ]; then
-        . "$MINICONDA_PREFIX/etc/profile.d/conda.sh"
+# . "$MINICONDA_PREFIX/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
         export PATH="$MINICONDA_PREFIX/bin:$PATH"
     fi
@@ -75,3 +82,8 @@ fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

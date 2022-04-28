@@ -17,20 +17,21 @@ files:
     src: "~/.vimrc"
     dst: "vimrc"
     before_setup:
-      - "curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     after_setup:
-      - vim +"PlugInstall --sync" +qa
 
   nvim:
-    src: "~/.config/nvim/init.vim"
-    dst: nvim_init.vim
-    before_setup:
-      - "sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"
+    src: "~/.config/nvim/init.lua"
+    dst: "nvim-init.lua"
 
+
+  nvim-lua:
+    src: "~/.config/nvim/lua"
+    dst: nvim-lua
     after_setup:
+      - git clone --depth 1 https://github.com/wbthomason/packer.nvim 
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
       - nvim +"PlugInstall --sync" +qa
+
   zsh:
     src: "~/.zshrc"
     dst: "zshrc"
@@ -50,3 +51,8 @@ files:
   nvchad:
     src: "~/.config/nvim/lua/custom"
     dst: nvchad
+    before_setup:
+      - git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+
+    after_setup:
+      - nvim +'hi NormalFloat guibg=#1e222a' +PackerSync

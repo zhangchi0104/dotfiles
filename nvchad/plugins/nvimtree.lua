@@ -3,7 +3,6 @@
 -- Date: 25/12/2021
 -- Description: Configuration for nvim-tree
 
-local nvim_tree = require("nvim-tree")
 local g = vim.g
 
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
