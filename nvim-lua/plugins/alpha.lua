@@ -1,13 +1,12 @@
 
 -- Date: 25/12/2021
 -- Description: config for alpha-nvim
-local exsits, err = pcall(require, 'alpha')
-if exists then 
+local exist, err = pcall(require, 'alpha')
+if exist then 
 local string = require('string')
 local table = require('table')
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
-local packer_list_plugins = require('packer.plugin_utils').list_installed_plugins
 
 -- configure dasbhoard 
 dashboard.section.buttons.val = {

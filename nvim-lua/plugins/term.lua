@@ -2,7 +2,9 @@
 -- Author: Chi Zhang
 -- Date 06/01/2022
 -- Description: Configuration for terminal
+local present, err = pcall(require, 'FTerm')
 
+if present then
 require('FTerm').setup({
   cmd = os.getenv('SHELL') or 
     '"C:\\Program Files\\PowerShell\\7\\pwsh.exe"',
@@ -17,3 +19,4 @@ local inoremap = require('utils').inoremap
 local toggle_term_cmd = '<cmd>lua require"FTerm".toggle()<CR>'
 map_key('n', '<F3>', toggle_term_cmd, opts) 
 map_key('t', '<F3>', toggle_term_cmd, opts)
+end

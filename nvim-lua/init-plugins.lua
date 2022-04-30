@@ -61,20 +61,17 @@ return require('packer').startup({function()
     use({
       'goolord/alpha-nvim',
     })
-
-    -- formatting
-    use 'sbdchd/neoformat'
-
-    -- sessions
-    use 'Shatur/neovim-session-manager'
     
-    -- dart / flutter
-    use 'akinsho/flutter-tools.nvim'
+    -- formatter 
+    use({'jose-elias-alvarez/null-ls.nvim'})
 
-    -- Terminal
-    use "numToStr/FTerm.nvim"
+    -- Better LSP 
+    use({'glepnir/lspsaga.nvim'})
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    })
 
-    -- http client
   end,
   config = {
     display = {
