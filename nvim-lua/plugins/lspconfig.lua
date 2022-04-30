@@ -2,14 +2,13 @@
 -- Author: Chi Zhang
 -- Date 24/12/2021
 -- Description: configuration for neovim/lsp-config
-
+local exist, err = pcall(require, 'lspconfig')
+if exist then
 local nvim_lsp = require('lspconfig')
 
 -- Load keymappings for LSP
-local on_attach = require('plugins/lspconfig-keymappings').on_attach
+local on_attach = require('keymappings').lsp_on_attach
 local ver = vim.version()
-local version_str = require'string'.format('%s.%s.%s', 
-  ver.major, ver.minor, ver.patch)
 -- initialize Python LSP 
 nvim_lsp.pyright.setup{}
 
@@ -22,18 +21,6 @@ capabilities = require('cmp_nvim_lsp').
 local servers = {
   --python
   pyright = {},
-  --dart / flutter
-  -- dartls = {
-  --   cmd = {
-  --    'dart', 
-  --    'language-server', 
-  --    '--client-id',
-  --    'neovim.lsp',
-  --    '--client-version',
-  --    version_str
-  --  }
-  -- }
-  emmet_ls = {},
 }
 
 
@@ -52,6 +39,7 @@ local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require('cmp')
+
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and 
@@ -61,16 +49,15 @@ local has_words_before = function()
 end
 
 local function tab(fallback)
-    if cmp.visible() then
-        cmp.confirm({ select=true })
-    elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-    elseif has_words_before() then
-        cmp.complete()
-    else
-        -- F("<Tab>")
-        fallback()
-    end
+  if cmp.visible() then
+    cmp.confirm({ select=true })
+  elseif luasnip.expand_or_jumpable() then
+    luasnip.expand_or_jump()
+  elseif has_words_before() then
+    cmp.complete()
+  else
+    fallback()
+  end
 end
 
 cmp.setup {
@@ -99,4 +86,6 @@ function _G.cmp_visible()
 end
 function _G.cmp_confirm()
     cmp.confirm({select=true})
+end
+-- EOF 
 end

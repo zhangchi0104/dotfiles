@@ -12,11 +12,17 @@ local function make_keymap_func(mode, default_opts)
     map_key(mode, src, dst, opts)
   end
 end
+local function win_gotonr(idx)
+  win_id = vim.fn.win_getid(idx)
+  vim.fn.win_gotoid(win_id)
+end
+
 
 M = {
   inoremap = make_keymap_func('i',  opts),
   nnoremap = make_keymap_func('n', opts),
   noremap = make_keymap_func('nvo', opts),
+  win_gotonr = win_gotonr
 }
 
 return M 
