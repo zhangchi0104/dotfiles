@@ -39,12 +39,12 @@ end
 function M.quote()
   if not HITOKOTO_FILE:exists() then
     M.cache()
-    return fetch_hitokoto()
+    return 'Stay hungry, stay foolish -- Steve Jobs'
   else
     with(open(HITOKOTO_FILE, 'r'), function(reader)
       lines = vim.fn.split(reader:read('*all'), '\n')
     end)
-    return lines[math.random(1, 10)]
+    return lines[math.random(1, MAX_LINES)]
   end
 end
 

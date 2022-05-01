@@ -63,34 +63,18 @@ utils.nnoremap('<Leader>7', '<cmd>lua require("utils").win_gotonr(7)<CR>')
 utils.nnoremap('<Leader>8', '<cmd>lua require("utils").win_gotonr(8)<CR>')
 utils.nnoremap('<Leader>9', '<cmd>lua require("utils").win_gotonr(9)<CR>')
 
--- LSP keymappingt
-function M.lsp_on_attach(client, bufnr)
-  local function buf_set_keymap(...) 
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-  local function buf_set_option(...) 
-    vim.api.nvim_buf_set_option(bufnr, ...) 
-  end
 
-  -- Mappings
-  local opts = { noremap = true, silent = true }
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vm.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+-- lspsaga
+utils.nnoremap('gh', ':Lspsaga lsp_finder<CR>')
+utils.nnoremap('ca', ':Lspsaga code_action<CR>')
+utils.nnoremap('K', ':Lspsaga hover_doc<CR>')
+utils.nnoremap('<C-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>')
+utils.nnoremap('<C-b>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>')
+utils.nnoremap('gs', ':Lspsaga signature_help<CR>')
+utils.nnoremap('cr', ':Lspsaga rename<CR>')
+utils.nnoremap('gd', ':Lspsaga preview_definition<CR>') 
 
-  buf_set_keymap('n', '<Leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('i', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<Leader>ce', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<Leader>bf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
-
+utils.tnoremap("<leader>'", ':Lspsaga open_floaterm<CR>')
+utils.tnoremap("<leader>'", ':Lspsage close_floaterm<CR>')
 
 return M

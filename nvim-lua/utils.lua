@@ -21,6 +21,7 @@ end
 M = {
   inoremap = make_keymap_func('i',  opts),
   nnoremap = make_keymap_func('n', opts),
+  tnoremap = make_keymap_func('t', opts),
   noremap = make_keymap_func('nvo', opts),
   win_gotonr = win_gotonr
 }

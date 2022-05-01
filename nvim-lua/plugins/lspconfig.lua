@@ -7,8 +7,6 @@ if exist then
 local nvim_lsp = require('lspconfig')
 
 -- Load keymappings for LSP
-local on_attach = require('keymappings').lsp_on_attach
-
 local capabilities = vim.lsp.protocol.
     make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').
@@ -23,7 +21,6 @@ local servers = {
 
 for lsp, conf in pairs(servers) do
   conf = conf or {}
-  conf.on_attach = on_attach
   conf.capabilities = capabilities 
   nvim_lsp[lsp].setup(conf)
 end
@@ -65,8 +62,6 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
