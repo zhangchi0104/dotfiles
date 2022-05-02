@@ -3,7 +3,10 @@
 -- Date 24/12/2021
 -- Description: configuration for neovim/lsp-config
 local exist, err = pcall(require, 'lspconfig')
-if exist then
+if not exist then
+  return
+end
+
 local nvim_lsp = require('lspconfig')
 
 -- Load keymappings for LSP
@@ -98,4 +101,4 @@ function _G.cmp_confirm()
     cmp.confirm({select=true})
 end
 -- EOF 
-end
+

@@ -4,23 +4,32 @@
 -- Description: Configuration for lualine
 local exist, error = pcall(require, 'lualine')
 
-if exist then
+if not exist then
+  return
+end
+local config = require('tokyonight.config')
+local colors = require('tokyonight.colors').setup(config)
+
 local function winnr()
   local idx = vim.fn.winnr()
   return string.format("%d", idx)
 end
 
+
 require'lualine'.setup {
   options = {
     theme = 'tokyonight',
-    },
+  },
     sections = {
       lualine_a = {'winnr', 'mode'},
     },
     inactive_sections = {
-      lualine_a = {},
+      lualine_a = {{
+        'winnr',
+        color = { bg = colors.blue, fg = colors.black }
+      }},
       lualine_b = {},
-      lualine_c = {'winnr','filename'},
+      lualine_c = {'filename'},
       lualine_x = {'location'},
       lualine_y = {},
       lualine_z = {}
@@ -28,4 +37,4 @@ require'lualine'.setup {
     tabline = {},
     extensions = {}
 }
-end
+

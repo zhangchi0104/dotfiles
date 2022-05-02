@@ -13,4 +13,4 @@ require('plugins/lualine')
 require('plugins/lspsaga')
 require('plugins/trouble')
 require('plugins/null-ls')
-
+require('plugins/which-key')

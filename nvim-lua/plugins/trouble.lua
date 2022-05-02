@@ -5,8 +5,9 @@
 
 local present, err = pcall(require, 'trouble')
 
-if present then
+if not present then
+  return 
+end
 
 require('trouble').setup()
 
-end

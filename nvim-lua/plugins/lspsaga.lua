@@ -5,8 +5,9 @@
 
 local present, err = pcall(require, 'lspsaga')
 
-if present then
-
+if not present then
+  return 
+end
 local saga = require('lspsaga')
 saga.init_lsp_saga({
   code_action_keys = {
@@ -17,4 +18,4 @@ saga.init_lsp_saga({
   }
 })
 
-end
+

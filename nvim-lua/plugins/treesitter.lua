@@ -3,7 +3,10 @@
 -- Date 14/12/2021
 -- Descriptions: configuration for treesitter
 local present, err = pcall(require, 'nvim-treesitter')
-if present then 
+if not present then 
+  return
+end
+
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'css', 
@@ -26,4 +29,4 @@ require('nvim-treesitter.configs').setup({
   },
   additional_vim_regex_highlighting = false
 })
-end 
+ 

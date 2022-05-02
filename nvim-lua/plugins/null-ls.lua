@@ -5,8 +5,9 @@
 
 local present, err = pcall(require, 'null-ls')
 
-if present then
-
+if not present then
+  return 
+end
 local builtins = require('null-ls').builtins
 
 require('null-ls').setup({
@@ -22,7 +23,12 @@ require('null-ls').setup({
         'css'
       }
     })
-  }
+  },
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+    end
+  end,
 })
 
-end
+

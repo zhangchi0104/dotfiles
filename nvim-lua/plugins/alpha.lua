@@ -2,7 +2,9 @@
 -- Date: 25/12/2021
 -- Description: config for alpha-nvim
 local exist, err = pcall(require, 'alpha')
-if exist then 
+if not exist then 
+  return 
+end
 local string = require('string')
 local table = require('table')
 local alpha = require('alpha')
@@ -22,4 +24,4 @@ dashboard.opts.opts.noautocmd = true
 dashboard.section.footer.val = require('hitokoto').quote()
 
 alpha.setup(dashboard.opts)
-end
+

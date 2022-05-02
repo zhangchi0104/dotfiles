@@ -5,7 +5,9 @@
 
 local present, telescope = pcall(require, 'telescope')
 
-if  present then
+if present then
+  return
+end
 local nnoremap = require('utils').nnoremap
 local inoremap = require('utils').inoremap 
 local config = {
@@ -50,4 +52,3 @@ local config = {
 
 telescope.setup(config) 
 
-end

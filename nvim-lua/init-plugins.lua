@@ -66,11 +66,13 @@ return require('packer').startup({function()
     use({'jose-elias-alvarez/null-ls.nvim'})
 
     -- Better LSP 
-    use({'glepnir/lspsaga.nvim'})
+    use({'tami5/lspsaga.nvim'})
     use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     })
+
+    use({"folke/which-key.nvim"})
 
   end,
   config = {
