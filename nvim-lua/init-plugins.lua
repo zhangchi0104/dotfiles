@@ -61,7 +61,8 @@ return require('packer').startup({function()
     use({
       'goolord/alpha-nvim',
     })
-    
+    -- identline 
+    use "lukas-reineke/indent-blankline.nvim"
     -- formatter 
     use({'jose-elias-alvarez/null-ls.nvim'})
 
@@ -71,8 +72,21 @@ return require('packer').startup({function()
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     })
+    use {
+      "ray-x/lsp_signature.nvim",
+    }
+
+
+    -- Comment
+    use "terrortylor/nvim-comment"
+
 
     use({"folke/which-key.nvim"})
+    
+    -- Terminal Integration 
+    use({"numToStr/FTerm.nvim"})
+    
+
 
   end,
   config = {

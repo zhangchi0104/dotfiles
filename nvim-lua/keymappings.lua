@@ -15,48 +15,48 @@ utils.nnoremap('U', ':redo<CR>')
 -- LSPSaga
 utils.nnoremap('<C-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>')
 utils.nnoremap('<C-b>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>')
-
+utils.tnoremap('<F3>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 -- Close float term
-utils.tnoremap("<leader>'", '<C-\\><C-n>:Lspsaga close_floaterm<CR>')
 
 local keymap = {
   ["<leader>"] = {
     t = {
       name='+Tabs',
-      p = { '<cmd>tabprevious<CR>', 'Previous tab'},
-      n = { '<cmd>tabnext<CR>', 'Next tab'},
-      o = { '<cmd>tabonly<CR>', 'Only this tab'},
-      d = { '<cmd>tabclose<CR>', 'Close tab'},
-      ['1'] = { '1gt<CR>', 'Go to tab 1'},
-      ['2'] = { '2gt<CR>', 'Go to tab 2'},
-      ['3'] = { '3gt<CR>', 'Go to tab 3'},
-      ['4'] = { '4gt<CR>', 'Go to tab 4'},
-      ['5'] = { '5gt<CR>', 'Go to tab 5'},
-      ['6'] = { '6gt<CR>', 'Go to tab 6'},
-      ['7'] = { '7gt<CR>', 'Go to tab 7'},
-      ['8'] = { '8gt<CR>', 'Go to tab 8'},
-      ['9'] = { '9gt<CR>', 'Go to tab 9'},
+      p = { '<cmd>tabprevious<CR>', 'Previous tab' },
+      n = { '<cmd>tabnext<CR>', 'Next tab' },
+      o = { '<cmd>tabonly<CR>', 'Only this tab' },
+      d = { '<cmd>tabclose<CR>', 'Close tab' },
+      ['1'] = { '1gt<CR>', 'Go to tab 1' },
+      ['2'] = { '2gt<CR>', 'Go to tab 2' },
+      ['3'] = { '3gt<CR>', 'Go to tab 3' },
+      ['4'] = { '4gt<CR>', 'Go to tab 4' },
+      ['5'] = { '5gt<CR>', 'Go to tab 5' },
+      ['6'] = { '6gt<CR>', 'Go to tab 6' },
+      ['7'] = { '7gt<CR>', 'Go to tab 7' },
+      ['8'] = { '8gt<CR>', 'Go to tab 8' },
+      ['9'] = { '9gt<CR>', 'Go to tab 9' },
     },
     c = {
       name = "+Code actions",
-      a = { '<cmd>Lspsaga code_action<CR>', 'Code action'},
-      r = { '<cmd>Lspsaga rename<CR>', 'Rename'}, 
-      f = {'<cmd>lua vim.lsp.buf.formatting_sync()<CR>', "Format buffer"}
+      a = { '<cmd>Lspsaga code_action<CR>', 'Code action' },
+      r = { '<cmd>Lspsaga rename<CR>', 'Rename' }, 
+      f = {'<cmd>lua vim.lsp.buf.formatting_sync()<CR>', "Format buffer" }
     },
     f = {
       name = "+Find (Telescope)",
-      f = { '<cmd>Telescope find_files<CR>', 'Find files'},
-      g = { '<cmd>Telescope live_grep<CR>', 'Live grep'},
-      b = { '<cmd>Telescope buffers<CR>', 'Buffers'},
-      h = { '<cmd>Telescope help_tags<CR>', 'Help tags'}, 
-      t = { '<cmd>Telescope<CR>', 'Open Telescope'},
+      f = { '<cmd>Telescope find_files<CR>', 'Find files' },
+      g = { '<cmd>Telescope live_grep<CR>', 'Live grep' },
+      b = { '<cmd>Telescope buffers<CR>', 'Buffers' },
+      h = { '<cmd>Telescope help_tags<CR>', 'Help tags' }, 
+      t = { '<cmd>Telescope<CR>', 'Open Telescope' },
     },
     g = {
       name = "+LSP",
-      k = { '<cmd>Lspsaga hover_doc<CR>', 'Hover doc'},
-      s = { '<cmd>Lspsaga signature_help<CR>', 'Signature help'},
-      d = { '<cmd>Lspsaga preview_definition<CR>', 'Preview definition'},
-      h = { '<cmd>Lspsaga lsp_finder<CR>', 'LSP finder'},  
+      k = { '<cmd>Lspsaga hover_doc<CR>', 'Hover doc' },
+      s = { '<cmd>Lspsaga signature_help<CR>', 'Signature help' },
+      d = { '<cmd>Lspsaga preview_definition<CR>', 'Preview definition' },
+      D = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto definition' },
+      h = { '<cmd>Lspsaga lsp_finder<CR>', 'LSP finder' },  
     }
   },
   ["<leader>h"] = {'<C-w>h', 'Go to window left'},
@@ -73,7 +73,7 @@ local keymap = {
   ["<leader>8"] = {'<cmd>lua require("utils").win_gotonr(8)<CR>', 'Go to window 8'},
   ["<leader>9"] = {'<cmd>lua require("utils").win_gotonr(9)<CR>', 'Go to window 9'},
   ["<leader>`"] = {"<cmd>NvimTreeToggle<CR>", "Toggle File Tree"},
-  ["<leader>'"] = {'<cmd>Lspsaga open_floaterm<CR>', "Toggle terminal"}
+  ["<F3>"] = {'<cmd>lua require("FTerm").toggle()<CR>', "Toggle terminal"}
 }
 
 local M = {

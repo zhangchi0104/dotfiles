@@ -19,6 +19,4 @@ local nnoremap = require('utils').nnoremap
 local noremap = require('utils').noremap
 local inoremap = require('utils').inoremap
 local toggle_term_cmd = '<cmd>lua require"FTerm".toggle()<CR>'
-map_key('n', '<F3>', toggle_term_cmd, opts) 
-map_key('t', '<F3>', toggle_term_cmd, opts)
 

@@ -1,58 +1,37 @@
-# @format
-
-# global hooks
-# supported keys:
-# before_setup: Array of commands before all files are processd
-# after_setup: Array of commands after all files are processed
-# after setup
-hooks:
-# Files as array
-# supported keys:
-#   dst: filename to be saved
-#   before_setup: Array of commands to executed before setup
-#   after_setup: array of commands after setup
-#   force_override: should override existing file
-files:
-  vim:
-    src: "~/.vimrc"
-    dst: "vimrc"
-    before_setup:
-    after_setup:
-
-  nvim:
-    src: "~/.config/nvim/init.lua"
-    dst: "nvim-init.lua"
-
-
-  nvim-lua:
-    src: "~/.config/nvim/lua"
-    dst: nvim-lua
-    after_setup:
-      - git clone --depth 1 https://github.com/wbthomason/packer.nvim 
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-      - nvim +"PlugInstall --sync" +qa
-
-  zsh:
-    src: "~/.zshrc"
-    dst: "zshrc"
-    before_setup:
-      - "wget -O $HOME/antigen.zsh git.io/antigen"
-  tmux:
-    src: "~/.tmux.conf.local"
-    dst: tmux.conf.local
-    before_setup:
-      - "git clone https://github.com/gpakosz/.tmux.git ~/.tmux"
-      - "ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf"
-
-  vimrc.d:
-    src: "~/.vimrc.d"
-    dst: vimrc.d
+all:
+- nvim
+- vim
+- zsh
+- lua
+config:
 
   nvchad:
-    src: "~/.config/nvim/lua/custom"
-    dst: nvchad
-    before_setup:
-      - git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-
     after_setup:
-      - nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+    - nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+    before_setup:
+    - git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+    files:
+      ~/.config/nvim/lua/custom: nvchad
+  nvim:
+    after_setup:
+    - git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    - nvim +"PlugInstall --sync" +qa
+    files:
+      ~/.config/nvim/init.lua: nvim-init.lua
+      ~/.config/nvim/lua: nvim-lua
+  tmux:
+    before_setup:
+    - git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+    - ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf
+    files:
+      ~/.tmux.conf.local: tmux.conf.local
+  vim:
+    files:
+      ~/.vimrc: vimrc
+      ~/.vimrc.d: vimrc.d
+  zsh:
+    before_setup:
+    - wget -O $HOME/antigen.zsh git.io/antigen
+    files:
+      ~/.zshrc: zshrc
+hooks: null
