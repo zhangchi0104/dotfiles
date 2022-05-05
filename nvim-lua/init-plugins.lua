@@ -16,7 +16,8 @@ return require('packer').startup({function()
     -- status line
     use({
       'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+      requires = {'kyazdani42/nvim-web-devicons', opt = true},
+      config = 'plugins/lualine'
     })
     
     -- tabline 
@@ -78,7 +79,7 @@ return require('packer').startup({function()
 
 
     -- Comment
-    use "terrortylor/nvim-comment"
+    use 'numToStr/Comment.nvim'
 
 
     use({"folke/which-key.nvim"})
