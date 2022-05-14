@@ -19,7 +19,15 @@ capabilities = require('cmp_nvim_lsp').
 local servers = {
   --python
   pyright = {},
+  dartls = {},
+  clangd = {},
+  tsserver = {}
 }
+
+require('nvim-lsp-installer').setup({
+  ensure_installed = { "pyright", "dartls", "tsserver" },
+  automatic_installation = true
+})
 
 
 for lsp, conf in pairs(servers) do

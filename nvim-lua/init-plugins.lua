@@ -17,7 +17,6 @@ return require('packer').startup({function()
     use({
       'nvim-lualine/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons', opt = true},
-      config = 'plugins/lualine'
     })
     
     -- tabline 
@@ -87,7 +86,7 @@ return require('packer').startup({function()
     -- Terminal Integration 
     use({"numToStr/FTerm.nvim"})
     
-
+    use {"williamboman/nvim-lsp-installer"}
 
   end,
   config = {

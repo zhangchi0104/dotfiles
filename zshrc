@@ -1,4 +1,4 @@
-# load antigen
+#a load antigen
 ANTIGEN_PATH="$HOME/antigen.zsh"
 source $ANTIGEN_PATH
 MINICONDA_PREFIX="$HOME/miniconda3"
@@ -82,7 +82,7 @@ fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH="$PATH:$HOME/flutter/bin"
 
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
