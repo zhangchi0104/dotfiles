@@ -33,14 +33,14 @@ alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 export EDITOR=nvim
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 if [ -e fuck ]; then
     eval $(thefuck --alias)
 fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
+if [[ -d $HOME/.pyenv ]] then
     export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
