@@ -70,7 +70,7 @@ fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/flutter/bin"
+export PATH="$HOME/flutter/bin:$PATH"
 
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
