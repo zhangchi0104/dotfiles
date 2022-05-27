@@ -57,6 +57,10 @@ local keymap = {
       d = { '<cmd>Lspsaga preview_definition<CR>', 'Preview definition' },
       D = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto definition' },
       h = { '<cmd>Lspsaga lsp_finder<CR>', 'LSP finder' },  
+    },
+    d = {
+     name = 'Debugger',
+     o = {"<cmd>lua require'utils'.ui_select_debugger()<CR>", "Launch debugger"}
     }
   },
   ["<leader>h"] = {'<C-w>h', 'Go to window left'},

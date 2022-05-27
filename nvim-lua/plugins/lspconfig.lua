@@ -2,10 +2,17 @@
 -- Author: Chi Zhang
 -- Date 24/12/2021
 -- Description: configuration for neovim/lsp-config
-local exist, err = pcall(require, 'lspconfig')
-if not exist then
+local exist_c, err = pcall(require, 'lspconfig')
+if not exist_c then
   return
 end
+
+local exist_i, err_i = pcall(require, 'nvim-lsp-installer')
+if not exist_i then
+  return
+end
+
+local lspkind = require('lspkind') 
 
 local nvim_lsp = require('lspconfig')
 
@@ -25,7 +32,7 @@ local servers = {
 }
 
 require('nvim-lsp-installer').setup({
-  ensure_installed = { "pyright", "dartls", "tsserver" },
+  ensure_installed = { "pyright", "dartls", "tsserver", "clangd" },
   automatic_installation = true
 })
 
@@ -100,6 +107,16 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+ formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50,
+
+      before = function (entry, vim_item)
+        return vim_item
+      end
+    })
+  }
 }
 
 function _G.cmp_visible()

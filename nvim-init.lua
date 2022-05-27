@@ -3,8 +3,8 @@
 
 -- Basics
 require('core')
-require('keymappings')
 require('init-plugins')
+require('keymappings')
 require('plugins')
 require('indent')
 

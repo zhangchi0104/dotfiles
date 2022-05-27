@@ -36,7 +36,7 @@ return require('packer').startup({function()
 
     -- auto compeletion
     use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
+    use('hrsh7th/cmp-nvim-lsp')
 
     --snippets
     use 'saadparwaiz1/cmp_luasnip'
@@ -55,6 +55,11 @@ return require('packer').startup({function()
       requires = {
         'kyazdani42/nvim-web-devicons',
       },
+    })
+    -- debugger
+    use({
+      "rcarriga/nvim-dap-ui",
+      requires = {"mfussenegger/nvim-dap"}
     })
 
     -- Greeter
@@ -87,6 +92,9 @@ return require('packer').startup({function()
     use({"numToStr/FTerm.nvim"})
     
     use {"williamboman/nvim-lsp-installer"}
+
+    use('MunifTanjim/nui.nvim')
+    use('onsails/lspkind-nvim')
 
   end,
   config = {
