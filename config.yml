@@ -34,4 +34,10 @@ config:
     - wget -O $HOME/antigen.zsh git.io/antigen
     files:
       ~/.zshrc: zshrc
+  czrc:
+    files:
+      ~/.czrc: czrc
+    before_setup:
+      - yarn global add commitizen
+      - yarn global add cz-conventional-changelog 
 hooks: null
