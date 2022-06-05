@@ -32,6 +32,8 @@ alias dc='docker-compose'
 alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
+alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890
+
 export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
 if [ -e fuck ]; then
