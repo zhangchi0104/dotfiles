@@ -1,8 +1,7 @@
 all:
 - nvim
-- vim
 - zsh
-- lua
+- tmux
 config:
 
   nvchad:
@@ -15,7 +14,7 @@ config:
   nvim:
     after_setup:
     - git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    - nvim +"PlugInstall --sync" +qa
+    - nvim +"PackerSync" +qa
     files:
       ~/.config/nvim/init.lua: nvim-init.lua
       ~/.config/nvim/lua: nvim-lua
@@ -40,4 +39,11 @@ config:
     before_setup:
       - yarn global add commitizen
       - yarn global add cz-conventional-changelog 
+  gdb:
+    before_setup:
+      - mkdir -p ~/code/github.com/pwndbg/
+      - git clone https://github.com/pwndbg/pwndbg ~/code/github.com/pwndbg
+      - cd pwndbg && ./setup.sh
+
+
 hooks: null

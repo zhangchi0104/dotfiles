@@ -27,7 +27,9 @@ local servers = {
   --python
   pyright = {},
   dartls = {},
-  clangd = {},
+  clangd = {
+    cmd={'clangd-11'},
+  },
   tsserver = {}
 }
 
@@ -39,6 +41,11 @@ require('nvim-lsp-installer').setup({
 
 for lsp, conf in pairs(servers) do
   conf = conf or {}
+  conf.on_attach  = function(client, bufnr)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+    end
+  end 
   conf.capabilities = capabilities 
   nvim_lsp[lsp].setup(conf)
 end
@@ -109,7 +116,7 @@ cmp.setup {
   },
  formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol', -- show only symbol annotations
+      mode = 'symbol_text', -- show only symbol annotations
       maxwidth = 50,
 
       before = function (entry, vim_item)

@@ -32,7 +32,7 @@ alias dc='docker-compose'
 alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
-alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890
+alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
 
 export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
@@ -46,6 +46,15 @@ if [[ -d $HOME/.pyenv ]] then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
+
+if [ -d $HOME/devtools/flutter/bin ]; then
+    export PATH=$PATH:$HOME/devtools/flutter/bin
+fi
+
+if [ -d $HOME/devtools/binaryninja ]; then
+    export PATH=$PATH:$HOME/devtools/binaryninja
+fi
+
 if [ -e /usr/local/bin/starship ]; then
     eval "$(starship init zsh)"
 fi

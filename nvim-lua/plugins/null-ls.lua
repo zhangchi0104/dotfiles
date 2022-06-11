@@ -22,7 +22,7 @@ require('null-ls').setup({
         'typescriptreact',
         'css'
       }
-    })
+    }),
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

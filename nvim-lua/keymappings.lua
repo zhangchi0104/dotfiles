@@ -59,9 +59,18 @@ local keymap = {
       h = { '<cmd>Lspsaga lsp_finder<CR>', 'LSP finder' },  
     },
     d = {
-     name = 'Debugger',
+     name = '+Debugger',
      o = {"<cmd>lua require'utils'.ui_select_debugger()<CR>", "Launch debugger"}
+    },
+    p = {
+      name = "+Problems",
+      x = {"<cmd>TroubleToggle<CR>", "Toggle problems list"},
+      d = {"<cmd>TroubleToggle document_diagnostics<CR>", "Toggle problems in document"},
+      w = {"<cmd>TroubleToggle workspace_diagnostics<CR>", "Toggle problems in worksapce"},
+      q = {"<cmd>TroubleToggle quickfix<CR>", "Toggle quickfix"},
+      l = {"<cmd>TroubleToggle loclist<CR>", "Toggle loclist"},
     }
+
   },
   ["<leader>h"] = {'<C-w>h', 'Go to window left'},
   ["<leader>j"] = {'<C-w>j', 'Go to window down'},
