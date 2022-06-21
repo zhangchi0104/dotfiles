@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 #a load antigen
 ANTIGEN_PATH="$HOME/antigen.zsh"
 source $ANTIGEN_PATH
@@ -83,7 +85,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
 
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
+# export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -102,3 +104,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
