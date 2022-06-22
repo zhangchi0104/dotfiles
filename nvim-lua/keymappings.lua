@@ -16,6 +16,7 @@ utils.nnoremap('U', ':redo<CR>')
 utils.nnoremap('<C-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>')
 utils.nnoremap('<C-b>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>')
 utils.tnoremap('<F3>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+utils.inoremap('<F3>', '<CMD>lua require("FTerm").toggle()<CR>')
 -- Close float term
 
 local keymap = {
