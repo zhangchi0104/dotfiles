@@ -21,14 +21,14 @@ local capabilities = vim.lsp.protocol.
     make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').
     update_capabilities(capabilities)
-
+local clangd = jit.os == 'OSX' and 'clangd' or'clangd-11'
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
   --python
   pyright = {},
   dartls = {},
   clangd = {
-    cmd={'clangd-11'},
+    cmd={clangd},
   },
   tsserver = {}
 }

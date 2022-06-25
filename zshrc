@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #a load antigen
 ANTIGEN_PATH="$HOME/antigen.zsh"
 source $ANTIGEN_PATH
@@ -35,7 +35,9 @@ alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
-
+if ! type "docker" > /dev/null; then 
+    alias docker='podman'
+fi
 export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
 if [ -e fuck ]; then
@@ -49,23 +51,18 @@ if [[ -d $HOME/.pyenv ]] then
     eval "$(pyenv init -)"
 fi
 
-if [ -d $HOME/devtools/flutter/bin ]; then
-    export PATH=$PATH:$HOME/devtools/flutter/bin
-fi
+[ -d $HOME/devtools/flutter/bin ] && export PATH=$PATH:$HOME/devtools/flutter/bin
 
-if [ -d $HOME/devtools/binaryninja ]; then
-    export PATH=$PATH:$HOME/devtools/binaryninja
-fi
+[ -d $HOME/devtools/binaryninja ] && export PATH=$PATH:$HOME/devtools/binaryninja
 
-if [ -e /usr/local/bin/starship ]; then
-    eval "$(starship init zsh)"
-fi
+[ -e /usr/local/bin/starship ] &&  eval "$(starship init zsh)"
 
 # eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
 if command -v keychain 1>/dev/null 2>&1; then 
     keychain id_rsa 
     . ~/.keychain/`uname -n`-sh 
 fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 export PATH=$HOME/.yarn/bin:$PATH
@@ -75,10 +72,6 @@ export PATH=$HOME/Scripts:$PATH
 if [[ -v WSLENV ]]; then
   alias copy='clip.exe'
   alias paste='powershell.exe -command "Get-Clipboard"'
-fi
-
-if [ -e nvim-dev ]; then
-    alias nvim='nvim-dev'
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -105,4 +98,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
