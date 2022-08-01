@@ -36,6 +36,7 @@ return require('packer').startup({function()
 
     -- auto compeletion
     use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-path'
     use('hrsh7th/cmp-nvim-lsp')
 
     --snippets
