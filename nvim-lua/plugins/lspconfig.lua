@@ -34,7 +34,7 @@ local servers = {
 }
 
 require('nvim-lsp-installer').setup({
-  ensure_installed = { "pyright", "dartls", "tsserver", "clangd" },
+  ensure_installed = { "pyright", "tsserver", "clangd" },
   automatic_installation = true
 })
 

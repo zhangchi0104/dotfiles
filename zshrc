@@ -1,5 +1,4 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #a load antigen
 ANTIGEN_PATH="$HOME/antigen.zsh"
 source $ANTIGEN_PATH
@@ -35,7 +34,7 @@ alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
-if ! type "docker" > /dev/null; then 
+if ! command -v "docker" 1> /dev/null 2>&1; then 
     alias docker='podman'
 fi
 export EDITOR=nvim
@@ -55,7 +54,9 @@ fi
 
 [ -d $HOME/devtools/binaryninja ] && export PATH=$PATH:$HOME/devtools/binaryninja
 
-[ -e /usr/local/bin/starship ] &&  eval "$(starship init zsh)"
+if command -v starship 1> /dev/null 2>&1; then
+	eval "$(starship init zsh)"
+fi
 
 # eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
 if command -v keychain 1>/dev/null 2>&1; then 
@@ -77,7 +78,9 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
-
+if [[ "$(uname)" -eq "Darwin" ]]; then
+	export PATH=$HOME/Library/Python/3.8/bin:$PATH
+fi
 # export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -97,6 +100,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Fig post block. Keep at the bottom of this file.
 
-[ -f $HOME/.fig/shell/zshrc.post.zsh ] && . "$HOME/.fig/shell/zshrc.post.zsh"
