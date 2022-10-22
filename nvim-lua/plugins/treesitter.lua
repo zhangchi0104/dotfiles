@@ -12,7 +12,6 @@ require('nvim-treesitter.configs').setup({
     'css', 
     'dockerfile', 
     'html', 
-    'go', 
     'javascript', 
     'json',
     'lua',
@@ -22,7 +21,8 @@ require('nvim-treesitter.configs').setup({
     'vim',
     'python',
     'yaml',
-    'dart'
+    'dart', 
+    'rust',
   },
   highlight = {
     enable = true,

@@ -9,5 +9,8 @@ if not present then
   return 
 end
 
-require('trouble').setup()
+require('trouble').setup({
+  icons=false,
+  use_lsp_diagnostic_signs = true,
+})
 

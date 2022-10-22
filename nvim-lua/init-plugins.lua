@@ -96,6 +96,15 @@ return require('packer').startup({function()
 
     use('MunifTanjim/nui.nvim')
     use('onsails/lspkind-nvim')
+    -- lua
+    use({'simrat39/rust-tools.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'mfussenegger/nvim-dap',
+        'neovim/nvim-lspconfig',
+      }
+    })
+
 
   end,
   config = {

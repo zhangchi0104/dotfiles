@@ -26,15 +26,14 @@ local clangd = jit.os == 'OSX' and 'clangd' or'clangd-11'
 local servers = {
   --python
   pyright = {},
-  dartls = {},
   clangd = {
     cmd={clangd},
   },
-  tsserver = {}
+  tsserver = {},
 }
 
 require('nvim-lsp-installer').setup({
-  ensure_installed = { "pyright", "tsserver", "clangd" },
+  ensure_installed = { "pyright", "tsserver", "rust_analyzer" },
   automatic_installation = true
 })
 
@@ -91,24 +90,23 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
       if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+        local entry = cmp.get_selected_entry()
+	      if not entry then
+	        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+	      else
+	        cmp.confirm()
+	      end
       else
         fallback()
       end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    end, {"i","s","c",}),
   }),
   sources = {
     { name = 'nvim_lsp' },
