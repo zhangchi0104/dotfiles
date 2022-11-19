@@ -11,6 +11,6 @@ end
 
 require('trouble').setup({
   icons=false,
-  use_lsp_diagnostic_signs = true,
+  use_diagnostic_signs = true,
 })
 

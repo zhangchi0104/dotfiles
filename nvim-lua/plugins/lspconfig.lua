@@ -20,7 +20,7 @@ local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.
     make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').
-    update_capabilities(capabilities)
+    default_capabilities(capabilities)
 local clangd = jit.os == 'OSX' and 'clangd' or'clangd-11'
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
@@ -41,7 +41,7 @@ require('nvim-lsp-installer').setup({
 for lsp, conf in pairs(servers) do
   conf = conf or {}
   conf.on_attach  = function(client, bufnr)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.document_formatting then
       vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
     end
   end 
@@ -100,9 +100,10 @@ cmp.setup {
         local entry = cmp.get_selected_entry()
 	      if not entry then
 	        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          cmp.confirm()
 	      else
 	        cmp.confirm()
-	      end
+        end
       else
         fallback()
       end
