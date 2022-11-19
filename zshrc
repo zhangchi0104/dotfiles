@@ -1,25 +1,19 @@
 # Fig pre block. Keep at the top of this file.
-#a load antigen
-ANTIGEN_PATH="$HOME/antigen.zsh"
-source $ANTIGEN_PATH
-MINICONDA_PREFIX="$HOME/miniconda3"
-
-if [ $(uname -s) = 'Darwin' ]; then
-	if [[ -a ~/.bash_profile ]]; then
-		source ~/.bash_profile
-	fi
-fi 
-# =====Antigen Configs=======
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-antigen bundle docker
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle esc/conda-zsh-completion
-antigen apply
-
+# Clone zcomet if necessary
+if [[ -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
+    # Source zcomet.zsh
+    source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
+    
+    # =====Plugins=======
+    zcomet load ohmyzsh plugins/git
+    zcomet load ohmyzsh plugins/docker
+    zcomet load zsh-users/zsh-syntax-highlighting
+    zcomet load esc/conda-zsh-completion
+    zcomet compinit
+fi
+if command -v starship 1> /dev/null 2>&1; then
+	eval "$(starship init zsh)"
+fi
 #####################################################
 #													#
 #						ALIAS						#
@@ -34,14 +28,8 @@ alias e='nvim'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
-if ! command -v "docker" 1> /dev/null 2>&1; then 
-    alias docker='podman'
-fi
 export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
-if [ -e fuck ]; then
-    eval $(thefuck --alias)
-fi
 
 if [[ -d $HOME/.pyenv ]] then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -50,13 +38,6 @@ if [[ -d $HOME/.pyenv ]] then
     eval "$(pyenv init -)"
 fi
 
-[ -d $HOME/devtools/flutter/bin ] && export PATH=$PATH:$HOME/devtools/flutter/bin
-
-[ -d $HOME/devtools/binaryninja ] && export PATH=$PATH:$HOME/devtools/binaryninja
-
-if command -v starship 1> /dev/null 2>&1; then
-	eval "$(starship init zsh)"
-fi
 
 # eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
 if command -v keychain 1>/dev/null 2>&1; then 
@@ -83,7 +64,8 @@ export PATH="$HOME/flutter/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"if [ $? -eq 0 ]; then
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
