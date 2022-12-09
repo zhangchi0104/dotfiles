@@ -12,23 +12,27 @@ if not exist_i then
   return
 end
 
+local exist_n, err_n = pcall(require, 'cmp_nvim_lsp')
+if not exist_n then
+  return
+end
+
 local lspkind = require('lspkind') 
 
 local nvim_lsp = require('lspconfig')
 
+-- luasnip setup
+local luasnip = require 'luasnip'
+
+-- nvim-cmp setup
+local cmp = require('cmp')
+
 -- Load keymappings for LSP
-local capabilities = vim.lsp.protocol.
-    make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').
-    default_capabilities(capabilities)
-local clangd = jit.os == 'OSX' and 'clangd' or'clangd-11'
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
   --python
   pyright = {},
-  clangd = {
-    cmd={clangd},
-  },
   tsserver = {},
 }
 
@@ -50,33 +54,7 @@ for lsp, conf in pairs(servers) do
 end
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- luasnip setup
-local luasnip = require 'luasnip'
-
--- nvim-cmp setup
-local cmp = require('cmp')
-
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and 
-    vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
-      sub(col, col):
-      match("%s") == nil
-end
-
-local function tab(fallback)
-  if cmp.visible() then
-    cmp.confirm({ select=true })
-  elseif luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  elseif has_words_before() then
-    cmp.complete()
-  else
-    fallback()
-  end
-end
+vim.o.completeopt = 'menuone,noselect,menu'
 
 cmp.setup {
   snippet = {
@@ -90,20 +68,14 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
     ["<Tab>"] = cmp.mapping(function(fallback)
       -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
       if cmp.visible() then
         local entry = cmp.get_selected_entry()
 	      if not entry then
 	        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          cmp.confirm()
-	      else
-	        cmp.confirm()
         end
+	      cmp.confirm()
       else
         fallback()
       end
@@ -125,12 +97,4 @@ cmp.setup {
     })
   }
 }
-
-function _G.cmp_visible()
-  return cmp.visible()
-end
-function _G.cmp_confirm()
-    cmp.confirm({select=true})
-end
--- EOF 
 

@@ -1,0 +1,40 @@
+version = 1
+
+[d.nvcahd]
+after = [ "nvim +'hi NormalFloat guibg=#1e222a' +PackerSync" ]
+before = [
+    "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1"
+]
+mappings = [ "~/.config/nvim/lua/custom:nvchad" ]
+
+[d.nvim]
+after = [
+    "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    "nvim +\"PackerSync\" +qa"
+]
+mappings = [
+    "nvim-init.lua:~/.config/nvim/init.lua", 
+    "nvim-lua/:~/.config/nvim/lua/" 
+]
+
+[d.tmux]
+before = [
+    "git clone https://github.com/gpakosz/.tmux.git ~/.tmux",
+    "ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf"
+]
+
+mappings = [
+    "tmux.conf.local:~/.tmux.conf.local"
+]
+
+[d.vim]
+mappings = [
+    "vimrc:~/.vimrc", 
+    "vimrc.d:~/.vimrc.d"
+]
+
+[d.zsh]
+before = [ "wget -O $HOME/antigen.zsh git.io/antigen" ]
+mappings = [ 
+"zshrc:~/.zshrc"
+]

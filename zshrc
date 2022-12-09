@@ -2,18 +2,24 @@
 # Clone zcomet if necessary
 if [[ -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
     # Source zcomet.zsh
+    autoload -U +X bashcompinit && bashcompinit
+    autoload -U +X compinit && compinit
     source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
-    
     # =====Plugins=======
     zcomet load ohmyzsh plugins/git
     zcomet load ohmyzsh plugins/docker
-    zcomet load zsh-users/zsh-syntax-highlighting
+    zcomet load ohmyzsh plugins/asdf
     zcomet load esc/conda-zsh-completion
+    zcomet load zsh-users/zsh-syntax-highlighting
+    zcomet load zsh-users/zsh-autosuggestions
     zcomet compinit
 fi
 if command -v starship 1> /dev/null 2>&1; then
 	eval "$(starship init zsh)"
 fi
+
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 #####################################################
 #													#
 #						ALIAS						#
@@ -30,13 +36,6 @@ alias vda='deactivate'
 alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
 export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
-
-if [[ -d $HOME/.pyenv ]] then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-fi
 
 
 # eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
