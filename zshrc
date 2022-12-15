@@ -18,6 +18,10 @@ if command -v starship 1> /dev/null 2>&1; then
 	eval "$(starship init zsh)"
 fi
 
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=2000
+# History auto completion with arrow keys
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 #####################################################
@@ -26,11 +30,10 @@ bindkey '\e[B' history-search-forward
 #													#	
 #####################################################
 
-alias watch-temp='sudo powermetrics --samplers smc |grep -i "CPU die temperature"'
 alias ea='conda activate'
 alias ipy=ipython 
 alias dc='docker-compose'
-alias e='nvim'
+alias e='$EDITOR'
 alias va='source ./.venv/bin/activate'
 alias vda='deactivate'
 alias pxy='export HTTP_PTROXY=http://192.168.50.233:7890 HTTPS_PROXY=http://192.168.50.233:7890'
@@ -38,28 +41,12 @@ export EDITOR=nvim
 export PATH="$HOME/go/bin:$PATH"
 
 
-# eval "$(lua $HOME/github.com/z.lua/z.lua --init zsh)"
-if command -v keychain 1>/dev/null 2>&1; then 
-    keychain id_rsa 
-    . ~/.keychain/`uname -n`-sh 
-fi
-
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/Scripts:$PATH
-
-# WSL Specific settings 
-if [[ -v WSLENV ]]; then
-  alias copy='clip.exe'
-  alias paste='powershell.exe -command "Get-Clipboard"'
-fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
-# export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
