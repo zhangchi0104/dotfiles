@@ -44,7 +44,7 @@ local function ui_select_debugger()
     table.insert(lines, Menu.item(conf.name, {config = conf}))
   end
 
-  local menu = Menu({
+  local menu = Menu {
     position = "50%",
     relative = "editor",
     border = {
@@ -72,7 +72,7 @@ local function ui_select_debugger()
     on_submit = function(item)
       require'dap'.run(item.config)
     end,
-  })
+  } 
   menu:mount()
 end
 

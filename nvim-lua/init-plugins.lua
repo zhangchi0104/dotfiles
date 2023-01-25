@@ -8,104 +8,81 @@ vim.cmd([[packadd packer.nvim]])
 
 return require('packer').startup({function()
     -- Let Packer manage itself
-    use({'wbthomason/packer.nvim', opt = true})
-    
-    -- colorscheme
-    use 'folke/tokyonight.nvim'
+    use { 'wbthomason/packer.nvim', opt = true }
 
-    -- status line
-    use({
+    -- Status-line
+    use {
       'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    })
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    }
     
-    -- tabline 
+    -- Tabline 
     use {
       'seblj/nvim-tabline',
-      requires = { 'kyazdani42/nvim-web-devicons'}
+      requires = { 'kyazdani42/nvim-web-devicons' }
     }
+
     -- Syntax highlight
-    use({
+    use {
       'nvim-treesitter/nvim-treesitter',
       run='TSUpdate'
-    })
+    }
+
+    use 'folke/tokyonight.nvim' -- colorscheme
 
     -- LSP 
     use 'neovim/nvim-lspconfig'
 
-
     -- auto compeletion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-path'
-    use('hrsh7th/cmp-nvim-lsp')
+    use 'hrsh7th/cmp-nvim-lsp'
+    use "williamboman/nvim-lsp-installer"
+    use "ray-x/lsp_signature.nvim"
+    use 'onsails/lspkind-nvim'
+    use 'tami5/lspsaga.nvim' -- Better LSP 
 
     --snippets
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip' 
 
+    use 'numToStr/Comment.nvim' -- Comment
+    use "folke/which-key.nvim" --key mappings
+
+    use 'goolord/alpha-nvim' -- Greeter
+    use "lukas-reineke/indent-blankline.nvim" --indent-line
+    use 'jose-elias-alvarez/null-ls.nvim' -- formatter 
+    use "numToStr/FTerm.nvim" -- Terminal Integration 
+
     -- finder
-    use({
+    use {
       'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} }
-    })
+      requires = 'nvim-lua/plenary.nvim'
+    }
     use {'nvim-telescope/telescope-ui-select.nvim' }
 
     -- file tree
-    use({
-      'kyazdani42/nvim-tree.lua',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-      },
-    })
-    -- debugger
-    use({
-      "rcarriga/nvim-dap-ui",
-      requires = {"mfussenegger/nvim-dap"}
-    })
-
-    -- Greeter
-    use({
-      'goolord/alpha-nvim',
-    })
-    -- identline 
-    use "lukas-reineke/indent-blankline.nvim"
-    -- formatter 
-    use({'jose-elias-alvarez/null-ls.nvim'})
-
-    -- Better LSP 
-    use({'tami5/lspsaga.nvim'})
-    use({
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
-    })
     use {
-      "ray-x/lsp_signature.nvim",
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons' ,
     }
 
 
-    -- Comment
-    use 'numToStr/Comment.nvim'
-
-
-    use({"folke/which-key.nvim"})
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
     
-    -- Terminal Integration 
-    use({"numToStr/FTerm.nvim"})
     
-    use {"williamboman/nvim-lsp-installer"}
-
-    use('MunifTanjim/nui.nvim')
-    use('onsails/lspkind-nvim')
     -- lua
-    use({'simrat39/rust-tools.nvim',
+    use {
+      'simrat39/rust-tools.nvim',
       requires = {
         'nvim-lua/plenary.nvim',
         'mfussenegger/nvim-dap',
         'neovim/nvim-lspconfig',
       }
-    })
-
-
+    } 
   end,
   config = {
     display = {
