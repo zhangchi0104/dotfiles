@@ -63,6 +63,10 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # pnpm
-export PNPM_HOME="/Users/alexzhang/Library/pnpm"
+if [[ $(uname) = Linux ]]; then 
+    export PNPM_HOME="/home/elysia/.local/share/pnpm"
+else
+    export PNPM_HOME="/Users/alexzhang/Library/pnpm"
+fi
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
