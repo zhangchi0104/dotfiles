@@ -2,48 +2,36 @@ all:
 - nvim
 - zsh
 - tmux
+version: 3
 config:
 
   nvchad:
-    after_setup:
-    - nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
-    before_setup:
-    - git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-    files:
+    after:
+      - nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+    before:
+      - git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+    mappings:
       ~/.config/nvim/lua/custom: nvchad
   nvim:
-    after_setup:
-    - git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    - nvim +"PackerSync" +qa
-    files:
+    after:
+      - git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+      - nvim +"PackerSync" +qa
+    mappings:
       ~/.config/nvim/init.lua: nvim-init.lua
       ~/.config/nvim/lua: nvim-lua
   tmux:
-    before_setup:
-    - git clone https://github.com/gpakosz/.tmux.git ~/.tmux
-    - ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf
-    files:
+    before:
+      - git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+      - ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf
+    mappings:
       ~/.tmux.conf.local: tmux.conf.local
   vim:
-    files:
+    mappings:
       ~/.vimrc: vimrc
       ~/.vimrc.d: vimrc.d
   zsh:
-    before_setup:
-    - wget -O $HOME/antigen.zsh git.io/antigen
-    files:
+    before:
+      - wget -O $HOME/antigen.zsh git.io/antigen
+    mappings:
       ~/.zshrc: zshrc
-  czrc:
-    files:
-      ~/.czrc: czrc
-    before_setup:
-      - yarn global add commitizen
-      - yarn global add cz-conventional-changelog 
-  gdb:
-    before_setup:
-      - mkdir -p ~/code/github.com/pwndbg/
-      - git clone https://github.com/pwndbg/pwndbg ~/code/github.com/pwndbg
-      - cd pwndbg && ./setup.sh
 
-
-hooks: null

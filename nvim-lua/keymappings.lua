@@ -59,10 +59,6 @@ local keymap = {
       D = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto definition' },
       h = { '<cmd>Lspsaga lsp_finder<CR>', 'LSP finder' },  
     },
-    d = {
-     name = '+Debugger',
-     o = {"<cmd>lua require'utils'.ui_select_debugger()<CR>", "Launch debugger"}
-    },
     p = {
       name = "+Problems",
       x = {"<cmd>TroubleToggle<CR>", "Toggle problems list"},
@@ -87,7 +83,6 @@ local keymap = {
   ["<leader>8"] = {'<cmd>lua require("utils").win_gotonr(8)<CR>', 'Go to window 8'},
   ["<leader>9"] = {'<cmd>lua require("utils").win_gotonr(9)<CR>', 'Go to window 9'},
   ["<leader>`"] = {"<cmd>NvimTreeToggle<CR>", "Toggle File Tree"},
-  ["<F3>"] = {'<cmd>lua require("FTerm").toggle()<CR>', "Toggle terminal"}
 }
 
 local M = {
