@@ -26,6 +26,7 @@ local plugins = {
     dependencies = {
       "hrsh7th/cmp-cmdline",
     },
+    event = { "InsertEnter", "CmdlineEnter" },
     init = function()
       require "custom.configs.cmp"
     end
