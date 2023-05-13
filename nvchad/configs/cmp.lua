@@ -1,37 +1,35 @@
 local cmp = require("cmp")
-local  mapping =   cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-      if cmp.visible() then
-        local entry = cmp.get_selected_entry()
-	      if not entry then
-	        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        end
-	      cmp.confirm()
-      else
-        fallback()
-      end
-    end, {"i","s","c",}),
+local mapping = cmp.mapping.preset.insert({
+	["<C-d>"] = cmp.mapping.scroll_docs(-4),
+	["<CR>"] = cmp.mapping.confirm({
+		behavior = cmp.ConfirmBehavior.Replace,
+		select = true,
+	}),
+	["<Tab>"] = cmp.mapping(function(fallback)
+		local copilot_keys = vim.fn["copilot#Accept"]()
+		if copilot_keys ~= "" and type(copilot_keys) == "string" then
+			vim.api.nvim_feedkeys(copilot_keys, "i", true)
+		elseif cmp.visible() then
+			cmp.select_next_item()
+		elseif require("luasnip").expand_or_jumpable() then
+			vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+		else
+			fallback()
+		end
+	end, { "i", "s", "c" }),
 })
 
 cmp.setup({
-  mapping = mapping,
+	mapping = mapping,
 })
 
--- Use cmdline & path source for ':' 
+-- Use cmdline & path source for ':'
 -- (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
 })
-
-
