@@ -94,10 +94,10 @@ local plugins = {
 	},
 	{
 		"simrat39/rust-tools.nvim",
-		ft = "rust",
 		config = function()
 			require("custom.configs.rust-tools")
 		end,
+		ft = "rust",
 	},
 }
 

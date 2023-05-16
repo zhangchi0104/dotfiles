@@ -3,12 +3,9 @@ local M = {}
 M.disabled = {
 	n = {
 		["<leader>b"] = "",
-		["<leader>f"] = "",
 		["<leader>q"] = "",
+		["<leader>x"] = "",
 	},
-}
-M.gitsigns = {
-	plugin = false,
 }
 
 M.telescope = {
@@ -20,6 +17,7 @@ M.telescope = {
 M.buffer = {
 	n = {
 		["<leader>bd"] = { "<cmd> bd <CR>", "close current buffer" },
+		["<leader>bo"] = { ":%bd|e#<CR>", "close other buffers" },
 	},
 }
 
