@@ -5,16 +5,24 @@ local lspconfig = require("lspconfig")
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-	"pyright",
-	"tsserver",
-	-- "rust_analyzer",
+	pyright = {
+		python = {
+			inlayHints = false,
+		},
+	},
+	tsserver = {},
+	rust_analyzer = {},
 }
-
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
+for lsp, settings in pairs(servers) do
+	print("lsp: " .. lsp .. " settings: " .. vim.inspect(settings))
+	local opts = {
 		on_attach = on_attach,
 		capabilities = capabilities,
-	})
+	}
+	opts = vim.tbl_deep_extend("force", opts, settings)
+
+	print(vim.inspect(opts))
+	lspconfig[lsp].setup(opts)
 end
 
 --

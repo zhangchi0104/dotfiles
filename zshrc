@@ -1,6 +1,4 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# Start configuration added by Zim install {{{
+#Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
 #
@@ -15,7 +13,6 @@
 
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
-
 #
 # Input/output
 #
@@ -97,6 +94,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
+
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
     curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
@@ -141,11 +139,18 @@ bindkey '\e[B' history-search-forward
 # ALIAS
 # -----
 
+#---------
+# Scripts 
+#---------
+# Starship init if starship in PATh
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)" 
+
+command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # ----
 # PATH
 # ----  
 export PATH=$HOME/.yarn/bin:$PATH
-export PATH=$HOME/Scripts:$PATH
+# export PATH=$HOME/Scripts:$PATH
 
 
 # -----
@@ -163,7 +168,6 @@ else
 fi
 unset __conda_setup
 
-
 # ---------------
 #  SSH Key Agent 
 # ---------------
@@ -174,5 +178,4 @@ else
 	export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+

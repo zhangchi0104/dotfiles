@@ -93,12 +93,20 @@ local plugins = {
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 	{
-		"simrat39/rust-tools.nvim",
+		"lvimuser/lsp-inlayhints.nvim",
+		event = { "LspAttach" },
 		config = function()
-			require("custom.configs.rust-tools")
+			require("custom.configs.lsp-inlayhints")
 		end,
-		ft = "rust",
 	},
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	enabled = false,
+	-- 	config = function()
+	-- 		require("custom.configs.rust-tools")
+	-- 	end,
+	-- 	ft = "rust",
+	-- },
 }
 
 return plugins

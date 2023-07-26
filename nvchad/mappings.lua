@@ -18,6 +18,7 @@ M.buffer = {
 	n = {
 		["<leader>bd"] = { "<cmd> bd <CR>", "close current buffer" },
 		["<leader>bo"] = { ":%bd|e#<CR>", "close other buffers" },
+		["<leader>be"] = { ":enew<CR>", "new empty buffer" },
 	},
 }
 

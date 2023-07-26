@@ -15,6 +15,7 @@ local sources = {
 
 	-- python
 	b.formatting.yapf,
+	b.diagnostics.ruff,
 
 	-- rust
 	b.formatting.rustfmt,
