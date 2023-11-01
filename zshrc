@@ -2,6 +2,12 @@
 #
 # User configuration sourced by interactive shells
 #
+#
+export ZIM_HOME=~/.zim
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
 
 # -----------------
 # Zsh configuration
@@ -161,9 +167,9 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+# . "$HOME/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
     fi
 fi
 unset __conda_setup
@@ -178,4 +184,18 @@ else
 	export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/arisu/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/arisu/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/arisu/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/arisu/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

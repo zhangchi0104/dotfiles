@@ -36,7 +36,7 @@ local plugins = {
 	{
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
-	},
+    },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -91,6 +91,7 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
+        cmd = {"TroubleToggle", "Trouble", "TroubleClose", "TroubleRefresh"}, 
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
