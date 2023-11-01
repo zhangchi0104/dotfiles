@@ -12,7 +12,7 @@ local servers = {
 	},
 	tsserver = {},
 	rust_analyzer = {},
-    emmet_ls = {},
+	emmet_ls = {},
 }
 for lsp, settings in pairs(servers) do
 	local opts = {

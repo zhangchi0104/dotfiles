@@ -19,6 +19,9 @@ local sources = {
 
 	-- rust
 	b.formatting.rustfmt,
+
+	-- javascript/typescript,
+	b.formatting.prettier,
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_init = function(client, bufnr)
