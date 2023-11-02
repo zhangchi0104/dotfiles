@@ -22,6 +22,7 @@ local sources = {
 
 	-- javascript/typescript,
 	b.formatting.prettier,
+	b.diagnostics.eslint,
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_init = function(client, bufnr)
