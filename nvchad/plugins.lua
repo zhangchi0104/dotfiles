@@ -23,13 +23,15 @@ local plugins = {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-cmdline",
-		},
-		event = { "InsertEnter", "CmdlineEnter" },
-		init = function()
-			require("custom.configs.cmp")
-		end,
+		opts = overrides.cmp,
+	},
+    {
+        "hrsh7th/cmp-cmdline",
+        dependencies = { "hrsh7th/nvim-cmp" },
+        event = { "CmdlineEnter" },
+        config = function()
+            require("custom.configs.cmp-cmdline").setup()
+        end,
 	},
 
 	-- override plugin configs
@@ -47,10 +49,7 @@ local plugins = {
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		opts = overrides.cmp,
-	},
+	
 	-- Install a plugin
 	{
 		"max397574/better-escape.nvim",
