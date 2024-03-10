@@ -1,8 +1,7 @@
 local overrides = require("custom.configs.overrides")
-
+-- local lsp
 ---@type NvPluginSpec[]
 local plugins = {
-
 	-- Override plugin definition options
 
 	{
@@ -24,14 +23,15 @@ local plugins = {
 	{
 		"hrsh7th/nvim-cmp",
 		opts = overrides.cmp,
+		dependencies = { "zbirenbaum/copilot-cmp" },
 	},
-    {
-        "hrsh7th/cmp-cmdline",
-        dependencies = { "hrsh7th/nvim-cmp" },
-        event = { "CmdlineEnter" },
-        config = function()
-            require("custom.configs.cmp-cmdline").setup()
-        end,
+	{
+		"hrsh7th/cmp-cmdline",
+		dependencies = { "hrsh7th/nvim-cmp" },
+		event = { "CmdlineEnter" },
+		config = function()
+			require("custom.configs.cmp-cmdline").setup()
+		end,
 	},
 
 	-- override plugin configs
@@ -49,7 +49,7 @@ local plugins = {
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
-	
+
 	-- Install a plugin
 	{
 		"max397574/better-escape.nvim",
@@ -80,12 +80,23 @@ local plugins = {
 	-- },
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{
-		"github/copilot.vim",
-		name = "copilot",
-		lazy = false,
-		init = function()
-			vim.g.copilot_assume_mapped = true
+		"zbirenbaum/copilot.lua",
+		cmd = { "Copilot" },
+		event = { "InsertEnter" },
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
 		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+		event = { "InsertEnter" },
+		dependencies = { "zbirenbaum/copilot.lua" },
 	},
 	{
 		"folke/trouble.nvim",

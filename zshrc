@@ -156,9 +156,9 @@ command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # PATH
 # ----  
 export PATH=$HOME/.yarn/bin:$PATH
-# export PATH=$HOME/Scripts:$PATH
+export PATH=$HOME/Scripts:$PATH
 
-
+alias dotman="just --justfile ~/.dotfiles/justfile --working-directory ~/.dotfiles"
 # -----
 # CONDA
 # -----
@@ -184,3 +184,17 @@ else
 	export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
+# -------
+#  Alias
+# -------
+#
+# -----------------------
+#  Homebrew Autocomplete
+# -----------------------
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi

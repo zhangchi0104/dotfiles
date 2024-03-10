@@ -12,11 +12,19 @@ local servers = {
 	},
 	tsserver = {},
 	rust_analyzer = {},
-	emmet_ls = {},
+	emmet_ls = { filetypes = { "html", "css" } },
+	html = {},
 }
+
+local inlay_hints_on_attach = function(client, bufnr)
+	on_attach(client, bufnr)
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.buf.inlay_hint(bufnr, true)
+	end
+end
 for lsp, settings in pairs(servers) do
 	local opts = {
-		on_attach = on_attach,
+		on_attach = inlay_hints_on_attach,
 		capabilities = capabilities,
 	}
 	opts = vim.tbl_deep_extend("force", opts, settings)
