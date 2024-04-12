@@ -144,7 +144,8 @@ bindkey '\e[B' history-search-forward
 # -----
 # ALIAS
 # -----
-
+alias ghcp="gh copilot"
+alias tellme="gh copilot suggest"
 #---------
 # Scripts 
 #---------

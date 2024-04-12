@@ -14,6 +14,7 @@ local servers = {
 	rust_analyzer = {},
 	emmet_ls = { filetypes = { "html", "css" } },
 	html = {},
+	tailwindcss = {},
 }
 
 local inlay_hints_on_attach = function(client, bufnr)
