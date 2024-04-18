@@ -65,6 +65,7 @@ local mapping = cmp.mapping.preset.insert({
 			fallback()
 		end
 	end, { "i", "s" }),
+	["<C-CR>"] = cmp.comlete(),
 	["<Esc>"] = cmp.mapping(function(fallback)
 		if cmp.visible() then
 			cmp.close()

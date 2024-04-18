@@ -1,4 +1,10 @@
 ---@type ChadrcConfig
+local vim = vim
+local opt = vim.opt
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevelstart = 99
 local M = {}
 
 -- Path to overriding theme and highlights files

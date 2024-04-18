@@ -7,7 +7,7 @@ local config = {
 	color_scheme = "Catppuccin Mocha",
 	hide_tab_bar_if_only_one_tab = true,
 	show_new_tab_button_in_tab_bar = false,
-	window_decorations = "RESIZE",
+	-- window_decorations = "RESIZE",
 	window_background_opacity = 0.9,
 	macos_window_background_blur = 70,
 }
