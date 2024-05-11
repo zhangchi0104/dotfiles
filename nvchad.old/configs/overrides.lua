@@ -12,6 +12,9 @@ M.treesitter = {
 		"markdown_inline",
 		"python",
 		"rust",
+		"haskell",
+		"typescript",
+		"tsx",
 	},
 	indent = {
 		enable = true,
@@ -41,6 +44,9 @@ M.mason = {
 		"emmet-ls",
 		"tailwindcss-language-server",
 		"eslint_d",
+
+		-- haskell
+		"hls",
 	},
 }
 
@@ -80,6 +86,16 @@ M.cmp = function()
 		else
 			fallback()
 		end
+	end, { "i", "s" })
+	conf.mapping["<S-CR>"] = cmp.mapping(function(fallback)
+		if not cmp.visible() then
+			return fallback()
+		end
+		local entry = cmp.get_selected_entry()
+		if not entry then
+			cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+		end
+		cmp.confirm()
 	end, { "i", "s" })
 	conf.mapping["<Up>"] = cmp.mapping(function(fallback)
 		if cmp.visible() then

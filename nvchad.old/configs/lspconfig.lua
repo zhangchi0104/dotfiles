@@ -15,16 +15,18 @@ local servers = {
 	emmet_ls = { filetypes = { "html", "css" } },
 	html = {},
 	tailwindcss = {},
+	hls = {},
 }
 
 local inlay_hints_on_attach = function(client, bufnr)
 	on_attach(client, bufnr)
-	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.buf.inlay_hint(bufnr, true)
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
 	end
 end
 for lsp, settings in pairs(servers) do
 	local opts = {
+		-- on_init = on_init,
 		on_attach = inlay_hints_on_attach,
 		capabilities = capabilities,
 	}

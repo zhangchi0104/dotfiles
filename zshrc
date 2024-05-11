@@ -153,12 +153,14 @@ alias tellme="gh copilot suggest"
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)" 
 
 command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
+command -v thefuck > /dev/null 2>&1 && eval $(thefuck --alias)
 # ----
 # PATH
 # ----  
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/Scripts:$PATH
-
+export PATH=$HOME/.ghcup/bin/:$PATH
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 alias dotman="just --justfile ~/.dotfiles/justfile --working-directory ~/.dotfiles"
 # -----
 # CONDA

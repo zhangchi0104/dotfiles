@@ -15,9 +15,8 @@ _deploy_nvchad:
     just _link_nvchad
 
 _link_nvchad:
-    mkdir -p ~/.config/nvim/lua/
-    if [ -d  ~/.config/nvim/lua/custom ]; then mv ~/.config/nvim/lua/custom ~/.config/nvim/lua/custom.bak fi
-    ln -sf $(pwd)/nvchad ~/.config/nvim/lua/custom
+    if [ -d  ~/.config/nvim ]; then mv ~/.config/nvim ~/.config/nvim.old fi
+    ln -sf $(pwd)/nvim ~/.config/nvim
 
 _deploy_tmux:
     git clone https://github.com/gpakosz/.tmux.git ~/.tmux

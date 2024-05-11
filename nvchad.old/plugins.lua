@@ -2,19 +2,30 @@ local overrides = require("custom.configs.overrides")
 -- local lsp
 ---@type NvPluginSpec[]
 local plugins = {
+	
+	{
+		"stevearc/conform.nvim",
+		cmd = { "ConformInfo" },
+		event = { "BufWritePre" },
+		opts = {
+			format_on_save = { timeout_ms = 500, lsp_fallback = true },
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "isort", "black" },
+				-- javascript = { { "prettierd", "prettier" } },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+			},
+		},
+	},
 	-- Override plugin definition options
 
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- format & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("custom.configs.null-ls")
-				end,
-			},
-		},
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
@@ -78,7 +89,6 @@ local plugins = {
 	--     }, {prefix = {'<leader>'}})
 	--   end,
 	-- },
-	{ "catppuccin/nvim", name = "catppuccin" },
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = { "Copilot" },
