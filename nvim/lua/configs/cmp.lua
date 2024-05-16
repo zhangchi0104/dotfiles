@@ -1,6 +1,6 @@
-local M = { }
-local cmp = require("cmp")
-M.mapping =  {}
+local M = {}
+local cmp = require "cmp"
+M.mapping = {}
 -- Mappings
 M.mapping["<Tab>"] = cmp.mapping(function(fb)
   if not cmp.visible() then
@@ -8,7 +8,7 @@ M.mapping["<Tab>"] = cmp.mapping(function(fb)
   end
   local entry = cmp.get_selected_entry()
   if not entry then
-    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+    cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
   end
   cmp.confirm()
 end, { "i", "s" })
@@ -30,12 +30,15 @@ M.mapping["<Down>"] = cmp.mapping(function(fallback)
 end, { "i", "s" })
 
 M.mapping["<Esc>"] = cmp.mapping.abort()
-M.mapping["<CR>"] = nil
+M.mapping["<CR>"] = cmp.mapping(function(fallback)
+  fallback()
+end, { "i", "s" })
 
 -- Sources
 
 M.sources = {
-  { name = "copilot" }
+  { name = "copilot" },
 }
 
 return M
+

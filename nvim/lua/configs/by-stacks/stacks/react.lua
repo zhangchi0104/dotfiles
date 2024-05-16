@@ -1,9 +1,10 @@
 local M = {}
-local utils = require('utils')
+local utils = require "utils"
 
 M.lsps = {
   tsserver = {},
   tailwindcss = {},
+  eslint = {},
 }
 
 M.formatters = {
@@ -24,17 +25,34 @@ M.syntax_highlights = {
   "typescript",
   "html",
 }
+
+M.manson = {
+  "typescript-language-server",
+  "tailwindcss-language-server",
+  "prettier",
+  "eslint-lsp",
+}
 -- Set indentation to 2 spaces
-utils.augroup('setIndentReact', { clear = true })
-utils.autocmd('Filetype', {
-  group = 'setIndentReact',
-  pattern = { 'css', 'html', 'javascript',
-    'markdown', 'md', 'typescript',
-    'scss', 'xml', 'xhtml', 'yaml', "javascriptreact",
-    "typescriptreact", "tsx", "jsx"
+utils.augroup("setIndentReact", { clear = true })
+utils.autocmd("Filetype", {
+  group = "setIndentReact",
+  pattern = {
+    "css",
+    "html",
+    "javascript",
+    "markdown",
+    "md",
+    "typescript",
+    "scss",
+    "xml",
+    "xhtml",
+    "yaml",
+    "javascriptreact",
+    "typescriptreact",
+    "tsx",
+    "jsx",
   },
-  command = 'setlocal shiftwidth=2 tabstop=2'
+  command = "setlocal shiftwidth=2 tabstop=2",
 })
 
 return M
-

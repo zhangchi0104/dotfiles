@@ -14,7 +14,6 @@ local plugins = {
 		},
 		config = function()
 			vim.opt.updatetime = 200
-			print("Set up barbecue")
 			require("barbecue").setup({
 				create_autocmd = false, -- prevent barbecue from updating itself automatically
 			})
