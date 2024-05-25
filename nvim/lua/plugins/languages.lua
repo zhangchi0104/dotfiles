@@ -1,6 +1,6 @@
-local stacks = require "configs.by-stacks"
+local stacks = require "configs.stacks"
 local utils = require "utils"
-    
+
 return {
   {
     "stevearc/conform.nvim",

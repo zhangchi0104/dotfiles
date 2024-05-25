@@ -22,13 +22,14 @@ local all_plugins = {
   },
   { import = "plugins.languages" },
   { import = "plugins.ui" },
-  { import = "plugins.ux" }
+  { import = "plugins.ux" },
 }
 local lazy_config = require "configs.lazy"
-stack = require "configs.by-stacks"
 
-if stack.plugins ~= nil and (next(stack.plugins) ~= nil) then
-  for _, plugin in ipairs(stack.plugins) do
+local stacks = require "configs.stacks"
+
+if stacks.plugins ~= nil and (next(stacks.plugins) ~= nil) then
+  for _, plugin in ipairs(stacks.plugins) do
     table.insert(all_plugins, plugin)
   end
 end

@@ -4,6 +4,7 @@
   "NvChad": { "branch": "v2.5", "commit": "156eeef8ecae812acd79d5eb58070d734a6202c6" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "base46": { "branch": "v2.5", "commit": "bcc9ed2e88ef55b7e9d50b2f80f6a2d4b8080b1d" },
+  "catppuccin": { "branch": "main", "commit": "d97387aea8264f484bb5d5e74f2182a06c83e0d8" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },

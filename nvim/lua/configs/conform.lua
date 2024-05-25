@@ -1,4 +1,4 @@
-local  formatters = require("configs.by-stacks").formatters
+local formatters = require("configs.stacks").formatters
 local options = {
   formatters_by_ft = formatters,
 
