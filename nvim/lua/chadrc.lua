@@ -9,8 +9,8 @@ opt.foldlevelstart = 99
 local M = {}
 
 M.ui = {
-  theme = "tokyonight",
-  transparency = true,
+  theme = "monekai",
+  -- transparency = true,
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
@@ -18,6 +18,6 @@ M.ui = {
   nvdash = {
     load_on_startup = true,
   },
+  telescope = { style = "borderless" },
 }
-
 return M

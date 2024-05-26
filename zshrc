@@ -150,6 +150,9 @@ alias tellme="gh copilot suggest"
 # Scripts 
 #---------
 # Starship init if starship in PATh
+# if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+    # export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
+# fi
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)" 
 
 command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -200,4 +203,11 @@ then
 
   autoload -Uz compinit
   compinit
+fi
+
+# ------------------------
+# Source .zshrc.local
+# ------------------------
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
 fi
