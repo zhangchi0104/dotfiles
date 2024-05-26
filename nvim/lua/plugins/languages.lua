@@ -17,6 +17,7 @@ return {
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+    dependencies = { "folke/neodev.nvim" },
   },
   --
   {
@@ -118,4 +119,5 @@ return {
       require("configs.cmp-cmdline").setup()
     end,
   },
+  { "folke/neodev.nvim", opts = {} },
 }
