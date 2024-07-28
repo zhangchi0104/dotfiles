@@ -7,8 +7,21 @@ local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
+
 M.mapping["<Tab>"] = cmp.mapping(function(fb)
   if not cmp.visible() or not has_words_before() then
+    return fb()
+  end
+  local entry = cmp.get_selected_entry()
+  if not entry then
+    cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+  end
+  cmp.confirm()
+end, { "i", "s" })
+
+M.mapping["<S-Tab>"] = cmp.mapping(function(fb)
+  print "shift tab cmp"
+  if not cmp.visible() then
     return fb()
   end
   local entry = cmp.get_selected_entry()

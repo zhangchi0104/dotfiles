@@ -1,4 +1,6 @@
 #Start configuration added by Zim install {{{
+# zmodload zsh/zprof
+
 #
 # User configuration sourced by interactive shells
 #
@@ -57,7 +59,9 @@ WORDCHARS=${WORDCHARS//[\/]}
 # input
 #
 
-# Append `../` to your input for each `.` you type after an initial `..`
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
 #zstyle ':zim:input' double-dot-expand yes
 
 #
@@ -197,13 +201,13 @@ fi
 # -----------------------
 #  Homebrew Autocomplete
 # -----------------------
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
+# if type brew &>/dev/null
+# then
+#   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+#
+#   autoload -Uz compinit
+#   compinit
+# fi
 
 # ------------------------
 # Source .zshrc.local
@@ -211,3 +215,8 @@ fi
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
+fi
+# zprof
