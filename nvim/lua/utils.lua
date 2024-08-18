@@ -1,4 +1,6 @@
+
 local M = {}
+
 M.autocmd = vim.api.nvim_create_autocmd
 M.augroup = vim.api.nvim_create_augroup
 M.is_array = function(table)
@@ -18,5 +20,10 @@ M.is_array = function(table)
 
   -- if no elements it can be array and not at same time
   return true
+end
+M.closeOtherBufs = function()
+  local tabufline = require('nvchad.tabufline')
+  tabufline.closeBufs_at_direction("left")
+  tabufline.closeBufs_at_direction("right")
 end
 return M
