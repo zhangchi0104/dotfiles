@@ -21,13 +21,6 @@ return {
   },
   --
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = stacks.manson,
-    },
-  },
-  --
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = stacks.syntax_highlights,

@@ -2,7 +2,7 @@ local M = {}
 local utils = require "utils"
 
 M.lsps = {
-  tsserver = {},
+  ts_ls = {},
   tailwindcss = {},
   eslint = {},
 }

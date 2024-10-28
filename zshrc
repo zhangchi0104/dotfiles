@@ -150,6 +150,7 @@ bindkey '\e[B' history-search-forward
 # -----
 alias ghcp="gh copilot"
 alias tellme="gh copilot suggest"
+alias lg='lazygit'
 #---------
 # Scripts 
 #---------

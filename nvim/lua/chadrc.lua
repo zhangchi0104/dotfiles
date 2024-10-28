@@ -8,8 +8,11 @@ opt.foldlevelstart = 99
 ---@type ChadrcConfig
 local M = {}
 
+M.base46 = {
+  theme = "onenord",
+}
+
 M.ui = {
-  theme = "tokyonight",
   cmp = {
     style = "atom",
   },
@@ -17,10 +20,14 @@ M.ui = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  nvdash = {
-    load_on_startup = true,
-  },
---   telescope = { style = "borderless" },
+
+  manson = {
+    pkgs = require "configs.stacks".manson,
+  }
+  --   telescope = { style = "borderless" },
 }
-M.lsp = { signature = false }
+
+M.nvdash = {
+  load_on_startup = true,
+}
 return M

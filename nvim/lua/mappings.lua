@@ -9,6 +9,7 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>bd", ":lua require('nvchad.tabufline').close_buffer()<CR>", { desc = "buffer close current buffer" })
 
 map("n", "<leader>bD", "<cmd> bdelete <CR>", { desc = "buffer close current buffer with its window" })
+map("n", "<leader>ff", "<cmd>Telescope find_files  hidden=true<cr>", { desc = "telescope find files" })
 
 map("n", "<leader>bo", function()
   local tabufline = require('nvchad.tabufline')
