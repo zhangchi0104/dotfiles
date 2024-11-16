@@ -18,7 +18,6 @@ zmodule input
 zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
-zmodule skywind3000/z.lua --cmd 'eval "$(lua {}/z.lua --init zsh enhanced once)"'
 zmodule asdf
 #
 # Prompt

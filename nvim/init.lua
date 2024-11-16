@@ -23,6 +23,7 @@ local all_plugins = {
   { import = "plugins.languages" },
   { import = "plugins.ui" },
   { import = "plugins.ux" },
+  { import = "plugins.ai" }
 }
 local lazy_config = require "configs.lazy"
 

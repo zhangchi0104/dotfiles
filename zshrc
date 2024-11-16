@@ -162,6 +162,7 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 command -v thefuck > /dev/null 2>&1 && eval $(thefuck --alias)
+command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 # ----
 # PATH
 # ----  
@@ -195,20 +196,11 @@ else
 	export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
-# -------
-#  Alias
-# -------
+# --------
+#  zoxide
+# --------
 #
-# -----------------------
-#  Homebrew Autocomplete
-# -----------------------
-# if type brew &>/dev/null
-# then
-#   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-#
-#   autoload -Uz compinit
-#   compinit
-# fi
+
 
 # ------------------------
 # Source .zshrc.local
