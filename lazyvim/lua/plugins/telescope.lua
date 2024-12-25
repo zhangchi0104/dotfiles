@@ -25,4 +25,7 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   cmd = "Telescope",
   opts = opts,
+  keys = {
+    { "<leader>fw", require("telescope.builtin").live_grep, desc = "Grep (Root Dir)" },
+  },
 }
