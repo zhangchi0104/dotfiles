@@ -1,4 +1,4 @@
-dofile(vim.g.base46_cache .. "telescope")
+-- dofile(vim.g.base46_cache .. "telescope")
 
 local opts = {
   defaults = {
@@ -24,7 +24,10 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   cmd = "Telescope",
-  opts = opts,
+  config = function()
+    require("telescope").setup(opts)
+  end,
+
   keys = {
     { "<leader>fw", require("telescope.builtin").live_grep, desc = "Grep (Root Dir)" },
   },

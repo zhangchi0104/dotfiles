@@ -5,7 +5,7 @@
 # User configuration sourced by interactive shells
 #
 #
-export ZIM_HOME=~/.zim
+export ZIM_HOME=$HOME/.zim
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
       https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
@@ -103,7 +103,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # Initialize modules
 # ------------------
 
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
 
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
@@ -152,6 +151,7 @@ bindkey '\e[B' history-search-forward
 alias ghcp="gh copilot"
 alias tellme="gh copilot suggest"
 alias lg='lazygit'
+alias zl="zellij"
 #---------
 # Scripts 
 #---------

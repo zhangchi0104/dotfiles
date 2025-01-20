@@ -1,7 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
-vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 
 require("config.lazy")
+    --   dofile(vim.g.base46_cache .. "telescope")
+    --   dofile(vim.g.base46_cache .. "statusline")
 -- if not vim.g.base46_loaded then
 --   dofile(vim.g.base46_cache .. "syntax")
 --   dofile(vim.g.base46_cache .. "defaults")
