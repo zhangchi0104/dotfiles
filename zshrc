@@ -161,8 +161,7 @@ alias zl="zellij"
 # fi
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)" 
 
-command -v asdf > /dev/null 2>&1 && . /opt/homebrew/opt/asdf/libexec/asdf.sh
-command -v thefuck > /dev/null 2>&1 && eval $(thefuck --alias)
+# command -v thefuck > /dev/null 2>&1 && eval $(thefuck --alias)
 command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 # ----
 # PATH
