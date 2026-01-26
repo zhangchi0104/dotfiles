@@ -1,0 +1,16 @@
+{
+  "name": ".dotfiles",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "setup-superpowers:claude": "bun run scripts/setup-superpowers.ts --agent claude-code",
+    "setup-superpowers:open-code": "bun run scripts/setup-superpowers.ts --agent open-code"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
