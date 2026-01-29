@@ -1,0 +1,8 @@
+macos-option-as-alt ="true"
+macos-icon = "custom-style"
+macos-icon-frame = "plastic"
+font-family = "Maple Mono Normal NF"
+font-size = 14
+background-opacity = 0.8
+background-blur-radius = 20
+theme = "Catppuccin Latte"

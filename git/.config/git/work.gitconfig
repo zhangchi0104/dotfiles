@@ -2,3 +2,6 @@
     name = Alex Zhang
     email = alex.zhang@everyoung.com
     signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGv+VXFcuVk7XfCaU4eJOseDtavUPRbBs66S49Ami6nO"
+
+[core]
+    sshCommand = "ssh -i ~/.ssh/ed25519_everyoung.pub -o IdentitiesOnly=yes"

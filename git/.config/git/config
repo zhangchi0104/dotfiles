@@ -3,6 +3,8 @@
     email = zhangchi0104@live.com
     signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII5aUuGYFLpnAGQZh+r2Aa5O1ZT6jN4QH6MwvPrFnWTp
 
+[core]
+    sshCommand = "ssh -i ~/.ssh/ed25519_primary.pub -o IdentitiesOnly=yes"
 [gpg]
     format = ssh
 
@@ -13,11 +15,11 @@
     defaultBranch = main
 
 # we are on a mac
-[includeIf "gitdir:/Users"]
-	path = ~/.config/git/darwin.gitconfig
+[includeIf "gitdir:/Users/"]
+	path = ~/.config/git/darwin.config
 
-[includeIf "gitdir:~/code/gihub.com/ailogick"]
+[includeIf "gitdir:~/code/github.com/ailogick/"]
 	path = ~/.config/git/work.gitconfig
 
-[includeIf "gitdir:~/code/gihub.com/everyoung"]
+[includeIf "gitdir:~/code/github.com/everyoungai/"]
 	path = ~/.config/git/work.gitconfig
