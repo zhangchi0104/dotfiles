@@ -103,9 +103,7 @@ async function setupOpenCode() {
   const pluginDir = `${configDir}/plugin`;
   const skillsDir = `${configDir}/skills`;
   const pluginSource = `${superpowersDir}/.opencode/plugin/superpowers.js`;
-  const commandsSource = `${superpowersDir}/commands`;
   const pluginLink = `${pluginDir}/superpowers.js`;
-  const commandsDir = `${configDir}/commands`;
   // Clone or update superpowers repo
   const { existsSync } = await import("fs");
   if (existsSync(superpowersDir)) {
@@ -120,11 +118,8 @@ async function setupOpenCode() {
   // Create directories
   await $`mkdir -p ${pluginDir}`;
   await $`mkdir -p ${skillsDir}`;
-  await $`mkdir -p ${commandsDir}`;
   console.log(`Created ${pluginDir}`);
-
   console.log(`Created ${skillsDir}`);
-  console.log(`Created ${commandsDir}`);
 
   // Create symlink for plugin
   if (existsSync(pluginLink)) {
@@ -136,13 +131,6 @@ async function setupOpenCode() {
     console.log(`Linked ${pluginLink} -> ${pluginSource}`);
   } else {
     console.warn(`Warning: Plugin source not found at ${pluginSource}`);
-  }
-
-  if (existsSync(commandsSource)) {
-    await $`ln -sf ${commandsSource} ${commandsDir}/superpowers`;
-    console.log(`Linked ${commandsDir} -> ${commandsSource}`);
-  } else {
-    console.warn(`Warning: Commands source not found at ${commandsSource}`);
   }
 
   console.log("\nRestart OpenCode to load the plugin.");
