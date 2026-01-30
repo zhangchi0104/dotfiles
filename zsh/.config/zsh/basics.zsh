@@ -34,11 +34,19 @@ _load_completions() {
     unfunction _load_completions 2>/dev/null
 }
 
+_load_vim_mode() {
+    autoload -z edit-command-line
+    zle -N edit-command-line
+    bindkey "^X^E" edit-command-line
+    unfunction _load_vim_mode 2>/dev/null
+}
+
 
 _load_basics() {
     _load_basics_syntax_highlight
     _load_basics_autosuggestions
     _load_completions
+    _load_vim_mode
     unfunction _load_basics 2>/dev/null
     unfunction _load_completions 2>/dev/null
 }
