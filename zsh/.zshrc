@@ -17,3 +17,6 @@ include $__ZSH_CONFIG_HOME/aliases.zsh
 include $__ZSH_CONFIG_HOME/applications/applications.zsh
 include $__ZSH_CONFIG_HOME/.zshrc.local
 include ~/.zshrc.local
+
+# opencode
+export PATH=/home/alex/.opencode/bin:$PATH
