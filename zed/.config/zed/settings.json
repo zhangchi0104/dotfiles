@@ -1,0 +1,135 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "project_panel": {
+    "sticky_scroll": false,
+  },
+  "sticky_scroll": {
+    "enabled": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "restore_on_startup": "last_session",
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
+  "indent_guides": {
+    "coloring": "indent_aware",
+  },
+  "colorize_brackets": true,
+  "terminal": {
+    "option_as_meta": true,
+    "dock": "right",
+  },
+
+  "disable_ai": false,
+  "autosave": "on_focus_change",
+  "ui_font_size": 15.0,
+  "ui_font_family": ".ZedSans",
+  "buffer_line_height": "comfortable",
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "model_parameters": [],
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_value_hints": false,
+    "show_type_hints": false,
+    "show_parameter_hints": true,
+    "show_other_hints": false,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": {
+      "control": false,
+      "alt": false,
+      "shift": false,
+      "platform": false,
+      "function": false,
+    },
+  },
+  "format_on_save": "on",
+  "minimap": {
+    "show": "never",
+  },
+  "icon_theme": "Catppuccin Frappé",
+  "theme": "Catppuccin Latte",
+  "vim_mode": false,
+  "base_keymap": "Cursor",
+  "buffer_font_size": 12.0,
+  "buffer_font_family": "Maple Mono Normal NF",
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    },
+    "TSX": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    },
+    "JavaScript": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    },
+  },
+  "theme_overrides": {
+    "Catppuccin Latte": {
+      // "background.appearance": "blurred",
+      // dark
+      // "background": "#111111d7",
+      // "status_bar.background": "#111111d7",
+      // "title_bar.background": "#111111d7",
+      // "elevated_surface.background": "#111111d7",
+      // "surface.background": "#111111d7",
+      // "editor.line_number": "#ffffff66",
+      // "background": "#f9fafcba",
+      // "status_bar.background": "#f9fafcba",
+      // "title_bar.background": "#f9fafcba",
+      // "elevated_surface.background": "#f9fafc",
+      // "surface.background": "#00000000",
+      // "editor.line_number": "#00000020",
+      // "border": "#90909000",
+      // "hint.background": "#e8e8e8c0",
+      // "editor.background": "#00000000",
+      // "editor.active_line_number": "#0079ff90",
+      // "editor.gutter.background": "#00000000",
+      // "tab_bar.background": "#00000000",
+      // "terminal.background": "#00000000",
+      // "toolbar.background": "#00000000",
+      // "tab.active_background": "#007aff0c",
+      // "element.selected": "#007aff0c",
+      // "tab.inactive_background": "#00000000",
+      // "editor.indent_guide": "#007aff12",
+      // "editor.indent_guide_active": "#007aff1a",
+      // "panel.indent_guide": "#007aff12",
+      // "panel.indent_guide_hover": "#007aff16",
+      // "panel.indent_guide_active": "#007aff1a",
+      // "panel.background": "#00000000",
+      // "panel.overlay_background": "#f9fafc",
+      // "panel.overlay_hover": "#CCE4FF",
+      // "panel.focused_border": "#00000000",
+      // "element.active": "#00000000",
+      // "border.variant": "#00000000",
+      // "scrollbar.track.border": "#00000000",
+      // "editor.active_line.background": "#00000000",
+      // "scrollbar.track.background": "#00000000",
+      // "scrollbar.thumb.background": "#007aff0c",
+      // "ghost_element.background": "#007aff00",
+      // "element.hover": "#007aff08",
+      // "ghost_element.hover": "#007aff08",
+      // "ghost_element.active": "#007aff0c",
+      // "ghost_element.selected": "#007aff12",
+      // "drop_target.background": "#007aff12",
+      // "error.background": "#ff9c9c",
+      // "error.border": "#ff9c9c",
+      // "editor.highlighted_line.background": "#007aff12",
+      // "warning.background": "#e8a64a",
+      // "warning.border": "#fe640b",
+      // "info.background": "#bcbdc8",
+    },
+  },
+}
