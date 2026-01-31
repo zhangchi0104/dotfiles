@@ -4,7 +4,7 @@
     signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII5aUuGYFLpnAGQZh+r2Aa5O1ZT6jN4QH6MwvPrFnWTp
 
 [core]
-    sshCommand = "ssh -i ~/.ssh/ed25519_primary.pub -o IdentitiesOnly=yes"
+    sshCommand = "ssh -i '~/.ssh/GitHub Key [zhangchi0104].pub' -o IdentitiesOnly=yes"
 [gpg]
     format = ssh
 
