@@ -1,6 +1,5 @@
 _load_mise() {
     if command -v mise &> /dev/null; then
-        echo "Loading mise shell integration..."
         local mise_bin=$(which mise)
         eval "$(mise activate zsh)"
     fi
