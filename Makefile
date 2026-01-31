@@ -1,4 +1,4 @@
-.PHONY: all stow install-opencode install-ghostty install-zed setup-superpowers \
+.PHONY: all stow install-opencode install-ghostty install-zed install-starship setup-superpowers \
         bat claude eza ghostty git lazyvim opencode ssh starship zellij zsh
 
 all: stow
@@ -52,6 +52,9 @@ install-ghostty:
 
 install-zed:
 	"@scripts/setup-scripts/zed.sh"
+
+install-starship:
+	"@scripts/setup-scripts/starship.sh"
 
 setup-superpowers:
 	bun run @scripts/setup-superpowers.ts --agent open-code
