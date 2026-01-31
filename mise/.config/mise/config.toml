@@ -1,0 +1,9 @@
+[tools]
+node = "24"
+python = "3.13"
+bun = "1.3"
+pnpm = "10.28.2"
+yarn = "4.12"
+
+[settings]
+npm.package_manager = "bun"
