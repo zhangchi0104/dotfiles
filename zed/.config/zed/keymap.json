@@ -18,7 +18,15 @@
   },
   {
     "bindings": {
-      "cmd-i": ["agent::NewExternalAgentThread", { "agent": "claude_code" }],
+      "cmd-i c": ["agent::NewExternalAgentThread", { "agent": "claude_code" }],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f w": "pane::DeploySearch",
+      "space /": "vim::ToggleComments",
     },
   },
 ]

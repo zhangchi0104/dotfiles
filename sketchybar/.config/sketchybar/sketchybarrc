@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
+SKETCHYBAR_CONFIG

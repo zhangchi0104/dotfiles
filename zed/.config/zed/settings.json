@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "provider": "copilot",
+  },
   "project_panel": {
     "sticky_scroll": false,
   },
@@ -17,9 +20,6 @@
     "trust_all_worktrees": true,
   },
   "restore_on_startup": "last_session",
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
   "indent_guides": {
     "coloring": "indent_aware",
   },
@@ -60,11 +60,12 @@
     "show": "never",
   },
   "icon_theme": "Catppuccin Frappé",
-  "theme": "Catppuccin Latte",
-  "vim_mode": false,
+  "theme": "Catppuccin Latte (Blur)",
+  "vim_mode": true,
   "base_keymap": "Cursor",
   "buffer_font_size": 12.0,
-  "buffer_font_family": "Maple Mono Normal NF",
+  "buffer_font_family": "Maple Mono NF CN",
+  "buffer_font_fallbacks": ["Maple Mono NF"],
   "languages": {
     "TypeScript": {
       "language_servers": ["!typescript-language-server", "vtsls", "..."],

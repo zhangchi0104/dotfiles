@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.wrap = true
 vim.o.autoread = true
+vim.g.root_spec = { "cwd" }
