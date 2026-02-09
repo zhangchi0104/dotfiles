@@ -1,1 +1,4 @@
 [env]
+
+[tools]
+bun = "latest"
