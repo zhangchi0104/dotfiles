@@ -8,6 +8,7 @@ rust = "latest"
 opencode = "latest"
 neovim = "latest"
 aws = { version = "latest", symlink_bins = "true" }
+codex = "latest"
 
 [settings]
 npm.package_manager = "bun"

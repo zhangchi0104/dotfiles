@@ -31,7 +31,7 @@
   "colorize_brackets": true,
   "terminal": {
     "option_as_meta": true,
-    "dock": "right",
+    "dock": "bottom",
   },
   "disable_ai": false,
   "autosave": "on_focus_change",

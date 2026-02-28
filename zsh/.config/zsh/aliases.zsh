@@ -7,6 +7,7 @@ alias oc="opencode";
 alias e="$EDITOR";
 alias zl="zellij";
 alias cat="bat";
+alias cx=codex
 function ngrokup {
   ngrok http $1 --url="michaela-squirearchal-lianne.ngrok-free.dev"
 }
