@@ -43,8 +43,8 @@ _load_vim_mode() {
 
 
 _load_basics() {
-    _load_basics_syntax_highlight
     _load_basics_autosuggestions
+    _load_basics_syntax_highlight
     _load_completions
     _load_vim_mode
     unfunction _load_basics 2>/dev/null
