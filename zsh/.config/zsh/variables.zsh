@@ -6,4 +6,9 @@ _load_android_home() {
     unfunction _load_android_home
 }
 
+_load_path() {
+  export PATH=$HOME/.local/bin:$PATH
+  unfunction _load_path
+}
+_load_path
 _load_android_home
